@@ -1,0 +1,467 @@
+@use 'variables' as *;
+@use 'sass:color';
+
+// Reset & Base
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: $font-body;
+  font-size: 16px;
+  line-height: 1.65;
+  color: $color-text;
+  background-color: $color-white;
+  overflow-x: hidden;
+}
+
+// Typography – Authoritative
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-heading;
+  font-weight: 700;
+  line-height: 1.15;
+  color: $color-primary;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  margin-bottom: 1rem;
+}
+
+p {
+  margin-bottom: 1rem;
+  color: $color-text;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-accent;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+// Container
+.container {
+  max-width: $container-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+// Section
+.section {
+  padding: $section-padding 0;
+}
+
+.section--dark {
+  background-color: $color-primary;
+  color: $color-white;
+  position: relative;
+
+  h2, h3, h4 {
+    color: $color-white;
+  }
+
+  p {
+    color: rgba($color-white, 0.85);
+  }
+}
+
+.section--light {
+  background-color: $color-off-white;
+}
+
+.section--accent {
+  background-color: $color-accent;
+
+  h2, h3 {
+    color: $color-primary;
+  }
+}
+
+// Section Header
+.section-header {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(3rem, 6vw, 4.5rem);
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: $color-accent;
+  margin-bottom: 1.2rem;
+}
+
+// Gold divider with anchor
+.gold-line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 auto 1.5rem;
+  opacity: 0;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+
+  .sr--visible & {
+    opacity: 1;
+  }
+
+  &::before,
+  &::after {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: $color-accent;
+  }
+}
+
+.gold-line__anchor {
+  width: 18px;
+  height: 18px;
+  color: $color-accent;
+  flex-shrink: 0;
+}
+
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.875rem 2rem;
+  font-family: $font-body;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+  border-radius: $radius-sm;
+  cursor: pointer;
+  transition: all $transition-base;
+  text-decoration: none;
+
+  &--primary {
+    background-color: $color-primary;
+    color: $color-white;
+    border-color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary-dark;
+      border-color: $color-primary-dark;
+      color: $color-white;
+    }
+  }
+
+  &--outline {
+    background-color: transparent;
+    color: $color-primary;
+    border-color: $color-primary;
+
+    &:hover {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+
+  &--outline-light {
+    background-color: transparent;
+    color: $color-white;
+    border-color: rgba($color-white, 0.6);
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-primary;
+    }
+  }
+
+  &--accent {
+    background-color: $color-accent;
+    color: $color-primary;
+    border-color: $color-accent;
+    font-weight: 700;
+
+    &:hover {
+      background-color: $color-accent-dark;
+      border-color: $color-accent-dark;
+      color: $color-primary;
+    }
+  }
+}
+
+// Grid helpers
+.grid {
+  display: grid;
+  gap: 2rem;
+
+  &--2 {
+    grid-template-columns: repeat(2, 1fr);
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &--3 {
+    grid-template-columns: repeat(3, 1fr);
+    @media (max-width: $bp-lg) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Utility
+.text-center { text-align: center; }
+.text-accent { color: $color-accent; }
+.text-primary { color: $color-primary; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 0.5rem; }
+.mb-2 { margin-bottom: 1rem; }
+.mb-3 { margin-bottom: 1.5rem; }
+.mb-4 { margin-bottom: 2rem; }
+
+// Scroll-triggered animations
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  opacity: 0;
+  animation: fadeInUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+// ============================================
+// Scroll Reveal System (v-scroll-reveal)
+// ============================================
+.sr {
+  opacity: 0;
+  transition:
+    opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &--fade-up {
+    transform: translateY(24px) scale(0.98);
+  }
+
+  &--fade-down {
+    transform: translateY(-24px) scale(0.98);
+  }
+
+  &--fade-left {
+    transform: translateX(40px);
+  }
+
+  &--fade-right {
+    transform: translateX(-40px);
+  }
+
+  &--scale {
+    transform: scale(0.95);
+  }
+
+  &--blur {
+    transform: translateY(20px);
+    filter: blur(6px);
+  }
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0) translateX(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+// ============================================
+// Page Transitions (fallback for non-VT browsers)
+// ============================================
+.page-enter-active,
+.page-leave-active {
+  transition:
+    opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.page-enter-from {
+  opacity: 0;
+  transform: translateY(12px) scale(0.99);
+}
+
+.page-leave-to {
+  opacity: 0;
+  transform: translateY(-12px) scale(0.99);
+}
+
+// View Transitions API (Chrome 111+)
+::view-transition-old(root) {
+  animation: vtFadeOut 0.25s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+::view-transition-new(root) {
+  animation: vtFadeIn 0.35s cubic-bezier(0.22, 1, 0.36, 1) 0.1s both;
+}
+
+@keyframes vtFadeOut {
+  to {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+}
+
+@keyframes vtFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(1.01);
+  }
+}
+
+// ============================================
+// Splash / Loading Screen
+// ============================================
+.splash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: $color-primary;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  &__logo {
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transform: scale(0.9);
+    animation: splashLogoIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__bar {
+    width: 120px;
+    height: 2px;
+    background: rgba($color-white, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    opacity: 0;
+    animation: splashFadeIn 0.3s ease 0.3s forwards;
+  }
+
+  &__bar-fill {
+    height: 100%;
+    width: 0;
+    background: linear-gradient(90deg, $color-accent, $color-accent-light);
+    border-radius: 2px;
+    animation: splashProgress 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.35s forwards;
+  }
+
+  &--hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes splashLogoIn {
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes splashFadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes splashProgress {
+  to {
+    width: 100%;
+  }
+}
+
+// Reduced motion
+@media (prefers-reduced-motion: reduce) {
+  .sr {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+
+  .page-enter-active,
+  .page-leave-active {
+    transition: none !important;
+  }
+
+  .page-enter-from,
+  .page-leave-to {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .gold-line {
+    transform: scaleX(1) !important;
+    transition: none !important;
+  }
+}
