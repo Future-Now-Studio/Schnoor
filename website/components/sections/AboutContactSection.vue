@@ -1,11 +1,5 @@
 <template>
   <section class="ac section section--dark">
-    <!-- Wave transition from light section above -->
-    <div class="ac__wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 48h1440V24c-120 0-180-24-360-24S840 24 720 24 540 0 360 0 120 24 0 24v24z" fill="currentColor"/>
-      </svg>
-    </div>
     <div class="container">
       <div v-scroll-reveal class="section-header">
         <span class="section-label">Ihr Anwalt</span>
@@ -95,24 +89,6 @@ import { PhPhone, PhEnvelope, PhMapPin, PhClock } from '@phosphor-icons/vue'
 
 .ac {
   position: relative;
-  padding-top: 0 !important;
-
-  &__wave {
-    position: relative;
-    margin-top: -1px;
-    line-height: 0;
-    color: $color-off-white;
-
-    svg {
-      display: block;
-      width: 100%;
-      height: 48px;
-    }
-  }
-
-  .container {
-    padding-top: $section-padding;
-  }
 
   // Dark-section text overrides
   .section-label {

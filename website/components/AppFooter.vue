@@ -4,15 +4,7 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
 
 <template>
   <footer class="footer">
-    <!-- Maritime wave divider -->
-    <div class="footer__wave" aria-hidden="true">
-      <svg viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-        <path d="M0 48h1440V24c-120 0-180-24-360-24S840 24 720 24 540 0 360 0 120 24 0 24v24z" fill="currentColor"/>
-      </svg>
-    </div>
-    <!-- Top accent bar -->
     <div class="footer__accent-bar"></div>
-
     <div class="footer__main">
       <div class="container">
         <!-- Upper: Logo + CTA -->
@@ -111,26 +103,9 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
 .footer {
   position: relative;
 
-  // Maritime wave divider with gold line on top
-  &__wave {
-    position: relative;
-    margin-top: -1px;
-    line-height: 0;
-    color: $color-off-white;
-
-    svg {
-      display: block;
-      width: 100%;
-      height: 32px;
-    }
-  }
-
   &__accent-bar {
     height: 2px;
     background: linear-gradient(90deg, transparent 5%, $color-accent 20%, $color-accent-light 50%, $color-accent 80%, transparent 95%);
-    margin-top: -2px;
-    position: relative;
-    z-index: 1;
   }
 
   &__main {

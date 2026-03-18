@@ -6,7 +6,7 @@
       label="Rechtsanwalt in Hamburg"
       subtitle="Rechtsanwalt und Strafverteidiger Philipp Schnoor – kompetente und persönliche Rechtsberatung in Hamburg. Ich setze mich entschlossen für Ihre Interessen ein."
       background-image="/images/Hero-Background.jpeg"
-      background-video="/images/Schnoor-Hero-Background.mp4"
+      background-video="/images/8716428-hd_1920_1080_25fps.mp4"
     >
       <template #title>
         Ihr Recht.<br />

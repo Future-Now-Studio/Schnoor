@@ -60,12 +60,6 @@ describe('AppHeader', () => {
 
 // ── AppFooter ──
 describe('AppFooter', () => {
-  it('renders wave divider', async () => {
-    const wrapper = await mountSuspended(AppFooter)
-    expect(wrapper.find('.footer__wave').exists()).toBe(true)
-    expect(wrapper.find('.footer__wave svg').exists()).toBe(true)
-  })
-
   it('renders accent bar', async () => {
     const wrapper = await mountSuspended(AppFooter)
     expect(wrapper.find('.footer__accent-bar').exists()).toBe(true)

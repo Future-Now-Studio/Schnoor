@@ -119,17 +119,21 @@ describe('Accessibility checks', () => {
   })
 })
 
-// ── Wave Divider Color ──
-describe('Wave divider colors', () => {
-  it('AboutContactSection wave uses light color (not dark)', () => {
+// ── Clean section transitions (no wave dividers) ──
+describe('Clean section transitions', () => {
+  it('AboutContactSection has no wave divider', () => {
     const content = readFile('components/sections/AboutContactSection.vue')
-    // Wave should be light colored to contrast with dark section
-    expect(content).toContain('color: $color-off-white')
+    expect(content).not.toContain('__wave')
   })
 
-  it('AppFooter wave uses light color (not dark)', () => {
+  it('AppFooter has no wave divider', () => {
     const content = readFile('components/AppFooter.vue')
-    expect(content).toContain('color: $color-off-white')
+    expect(content).not.toContain('__wave')
+  })
+
+  it('AppFooter has accent bar', () => {
+    const content = readFile('components/AppFooter.vue')
+    expect(content).toContain('accent-bar')
   })
 })
 
