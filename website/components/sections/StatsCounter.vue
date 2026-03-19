@@ -22,9 +22,7 @@
 
 <script setup lang="ts">
 const stats = reactive([
-  { target: 500, display: '0', prefix: '', suffix: '+', label: 'Zufriedene Mandanten', done: false },
-  { target: 10, display: '0', prefix: '', suffix: '+', label: 'Jahre Erfahrung', done: false },
-  { target: 98, display: '0', prefix: '', suffix: '%', label: 'Erfolgsquote', done: false },
+  { target: 7, display: '0', prefix: '', suffix: '+', label: 'Jahre Erfahrung', done: false },
   { target: 4.9, display: '0', prefix: '', suffix: '★', label: 'Google Bewertung', decimal: true, done: false },
 ])
 
@@ -107,14 +105,11 @@ onMounted(() => {
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     text-align: center;
-
-    @media (max-width: $bp-md) {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2rem 1.5rem;
-    }
+    max-width: 600px;
+    margin: 0 auto;
   }
 }
 

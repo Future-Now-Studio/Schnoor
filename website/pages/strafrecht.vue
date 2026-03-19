@@ -2,9 +2,9 @@
   <div>
     <SectionsHeroSection
       variant="page"
-      label="Strafverteidigung Hamburg"
-      title="Strafrecht"
-      subtitle="Vom Ermittlungsverfahren bis zur Hauptverhandlung – als Strafverteidiger in Hamburg stehe ich Ihnen konsequent zur Seite und schütze Ihre Rechte."
+      label="Strafverteidiger aus Hamburg"
+      title="Strafrecht – jetzt zählt jede Entscheidung"
+      subtitle="Vorladung, Hausdurchsuchung oder Ermittlungsverfahren: In dieser Situation sollten Sie keine unüberlegten Aussagen machen. Ich übernehme Ihre Verteidigung und sorge für eine klare Strategie."
       background-image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80&fit=crop"
     />
 
@@ -13,24 +13,71 @@
       <div class="container">
         <div class="intro__grid">
           <div v-scroll-reveal="'fade-right'" class="intro__content">
-            <h2>Ihr Strafverteidiger in Hamburg</h2>
+            <h2>Ihr Strafverteidiger aus Hamburg</h2>
             <p>
-              Wenn Sie mit dem Strafrecht in Berührung kommen, ist das eine belastende Situation. 
-              Ob Beschuldigter, Angeklagter oder Zeuge – in jedem Fall sollten Sie frühzeitig einen 
-              erfahrenen Strafverteidiger hinzuziehen. Je früher Sie handeln, desto besser sind Ihre Chancen.
+              Wenn Sie mit einem strafrechtlichen Vorwurf konfrontiert sind, kommt es auf die ersten
+              Schritte an. Unüberlegte Aussagen oder falsche Entscheidungen lassen sich später oft nicht mehr korrigieren.
             </p>
             <p>
-              Als Strafverteidiger in Hamburg verteidige ich Ihre Rechte engagiert und diskret. 
-              Ich analysiere die Ermittlungsakte gründlich, entwickle eine individuelle Verteidigungsstrategie 
-              und begleite Sie durch das gesamte Verfahren – mit dem Ziel, das bestmögliche Ergebnis für Sie zu erzielen.
+              Ich übernehme Ihre Verteidigung von Beginn an, fordere Akteneinsicht und entwickle auf
+              dieser Grundlage eine klare Strategie. Ziel ist es, das Verfahren frühzeitig in die richtige
+              Richtung zu lenken und ein belastbares Ergebnis zu erreichen.
             </p>
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
             <img
-              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop"
+              src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&h=400&fit=crop"
               alt="Strafverteidigung Hamburg – Rechtsanwalt Schnoor"
               loading="lazy"
             />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Was jetzt zu tun ist -->
+    <section class="urgent">
+      <div class="urgent__bg" aria-hidden="true"></div>
+      <div class="container">
+        <div v-scroll-reveal="'scale'" class="urgent__card">
+          <div class="urgent__badge">
+            <PhWarning :size="20" weight="bold" />
+            <span>Sofort handeln</span>
+          </div>
+          <h2 class="urgent__title">Was jetzt zu tun ist</h2>
+          <p class="urgent__intro">Wenn Sie Post von Polizei oder Staatsanwaltschaft erhalten haben:</p>
+          <div class="urgent__steps">
+            <div class="urgent__step">
+              <div class="urgent__step-number">1</div>
+              <div class="urgent__step-content">
+                <strong>Keine Aussage machen</strong>
+                <span>Schweigen Sie – ohne anwaltliche Beratung.</span>
+              </div>
+            </div>
+            <div class="urgent__step">
+              <div class="urgent__step-number">2</div>
+              <div class="urgent__step-content">
+                <strong>Nichts erklären</strong>
+                <span>Keine vorschnellen Erklärungen gegenüber Dritten.</span>
+              </div>
+            </div>
+            <div class="urgent__step">
+              <div class="urgent__step-number">3</div>
+              <div class="urgent__step-content">
+                <strong>Mich kontaktieren</strong>
+                <span>Ich übernehme die Kommunikation und kümmere mich um alles Weitere.</span>
+              </div>
+            </div>
+          </div>
+          <div class="urgent__actions">
+            <NuxtLink to="/kontakt" class="btn btn--accent btn--lg">
+              Jetzt Strafverteidiger kontaktieren
+              <PhArrowRight :size="18" weight="light" />
+            </NuxtLink>
+            <a href="tel:+4940XXXXXXXX" class="urgent__call">
+              <PhPhone :size="18" weight="light" />
+              Sofort anrufen
+            </a>
           </div>
         </div>
       </div>
@@ -106,20 +153,18 @@
       </div>
     </section>
 
-    <SectionsCtaSection
-      label="Strafverteidigung Hamburg"
-      title="Sie haben eine Vorladung erhalten?"
-      text="Handeln Sie jetzt. Je früher Sie einen Strafverteidiger einschalten, desto besser kann ich Ihre Interessen schützen. Kontaktieren Sie mich vertraulich."
-    />
+    <SectionsAboutContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import { PhArrowRight, PhWarning, PhPhone } from '@phosphor-icons/vue'
+
 useSeoMeta({
   title: 'Strafrecht Hamburg | Strafverteidiger Philipp Schnoor – Rechtsanwalt',
-  ogTitle: 'Strafverteidiger Hamburg – Rechtsanwalt Philipp Schnoor',
-  description: 'Strafverteidiger in Hamburg. Verteidigung im Ermittlungsverfahren, Hauptverhandlung, Berufung & Revision. Erfahrener Rechtsanwalt für Strafrecht. Jetzt kontaktieren.',
-  ogDescription: 'Erfahrener Strafverteidiger in Hamburg. Kompetente Verteidigung vom Ermittlungsverfahren bis zur Hauptverhandlung.',
+  ogTitle: 'Strafverteidiger aus Hamburg – Rechtsanwalt Philipp Schnoor',
+  description: 'Strafverteidiger aus Hamburg. Verteidigung im Ermittlungsverfahren, Hauptverhandlung, Berufung & Revision. Rechtsanwalt für Strafrecht. Jetzt kontaktieren.',
+  ogDescription: 'Strafverteidiger aus Hamburg. Kompetente Verteidigung vom Ermittlungsverfahren bis zur Hauptverhandlung.',
 })
 
 const leistungen = [
@@ -252,6 +297,154 @@ useFaqSchema(faqItems)
   }
 }
 
+/* Urgent Section */
+.urgent {
+  position: relative;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  background: $color-primary;
+  overflow: hidden;
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba($color-primary-light, 0.1) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba($color-accent, 0.06) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  &__card {
+    max-width: 720px;
+    margin: 0 auto;
+    background: rgba($color-white, 0.05);
+    border: 1px solid rgba($color-accent, 0.1);
+    border-radius: $radius-lg;
+    padding: clamp(2rem, 5vw, 3.5rem);
+    backdrop-filter: blur(8px);
+    position: relative;
+  }
+
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.4rem 0.9rem;
+    border-radius: 100px;
+    background: rgba($color-accent, 0.15);
+    border: 1px solid rgba($color-accent, 0.25);
+    color: $color-accent-light;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+  }
+
+  &__title {
+    font-family: $font-heading;
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    font-weight: 800;
+    color: $color-white;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+  }
+
+  &__intro {
+    font-size: 1rem;
+    color: rgba($color-white, 0.7);
+    margin-bottom: 2rem;
+    line-height: 1.7;
+  }
+
+  &__steps {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  &__step {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    padding: 1rem 1.2rem;
+    border-radius: $radius-md;
+    background: rgba($color-white, 0.04);
+    border: 1px solid rgba($color-white, 0.06);
+    transition: all $transition-fast;
+
+    &:hover {
+      background: rgba($color-white, 0.07);
+      border-color: rgba($color-accent, 0.15);
+    }
+  }
+
+  &__step-number {
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, $color-accent, $color-accent-dark);
+    color: $color-primary-deeper;
+    font-family: $font-heading;
+    font-size: 1rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    padding-top: 0.25rem;
+
+    strong {
+      color: $color-white;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    span {
+      color: rgba($color-white, 0.6);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+
+    .btn--lg {
+      padding: 1rem 2rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  &__call {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgba($color-white, 0.8);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color $transition-fast;
+
+    svg {
+      color: $color-accent;
+    }
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+}
+
 .leistungen {
   &__grid {
     display: grid;
@@ -269,14 +462,14 @@ useFaqSchema(faqItems)
 }
 
 
-// Ablauf Steps
+/* Ablauf Steps */
 .ablauf {
   &__steps {
     max-width: 820px;
     margin: 0 auto;
     position: relative;
 
-    // Vertical connecting line
+    /* Vertical connecting line */
     &::before {
       content: '';
       position: absolute;

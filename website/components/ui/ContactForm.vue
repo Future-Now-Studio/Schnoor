@@ -1,11 +1,6 @@
 <template>
   <form class="contact-form" @submit.prevent="handleSubmit">
-    <div class="contact-form__promise">
-      <PhClock :size="18" weight="light" />
-      <span>Ich melde mich in der Regel <strong>innerhalb von 24 Stunden</strong> bei Ihnen zurück.</span>
-    </div>
-
-    <div class="contact-form__row">
+    <div class="contact-form__row contact-form__row--thirds">
       <div class="contact-form__field">
         <label for="anrede">Anrede *</label>
         <select id="anrede" v-model="form.anrede" required>
@@ -15,9 +10,6 @@
           <option value="Divers">Divers</option>
         </select>
       </div>
-    </div>
-
-    <div class="contact-form__row contact-form__row--half">
       <div class="contact-form__float">
         <input id="vorname" v-model="form.vorname" type="text" required placeholder=" " />
         <label for="vorname">Vorname *</label>
@@ -39,16 +31,17 @@
       </div>
     </div>
 
-    <div class="contact-form__row">
+    <div class="contact-form__row contact-form__row--half">
       <div class="contact-form__field">
-        <label for="kontaktweg">Bevorzugter Rückmeldeweg *</label>
-        <select id="kontaktweg" v-model="form.kontaktweg" required>
+        <label for="kontaktweg">Bevorzugter Rückmeldeweg</label>
+        <select id="kontaktweg" v-model="form.kontaktweg">
           <option value="" disabled>Bitte wählen</option>
           <option value="E-Mail">E-Mail</option>
           <option value="Telefon">Telefon</option>
           <option value="WhatsApp">WhatsApp</option>
         </select>
       </div>
+      <div></div>
     </div>
 
     <div class="contact-form__row">
@@ -57,7 +50,7 @@
           id="nachricht"
           v-model="form.nachricht"
           required
-          rows="6"
+          rows="4"
           placeholder=" "
         ></textarea>
         <label for="nachricht">Ihre Nachricht *</label>
@@ -71,40 +64,23 @@
       </label>
     </div>
 
-    <div class="contact-form__row">
-      <button type="submit" class="btn btn--accent" :disabled="submitted">
-        <PhCheck v-if="submitted" :size="18" weight="bold" />
-        <PhArrowRight v-else :size="18" weight="light" />
-        {{ submitted ? 'Nachricht gesendet – Ich melde mich!' : 'Nachricht senden' }}
-      </button>
-    </div>
+    <button type="submit" class="btn btn--accent" :disabled="submitted">
+      <PhCheck v-if="submitted" :size="18" weight="bold" />
+      <PhArrowRight v-else :size="18" weight="light" />
+      {{ submitted ? 'Nachricht gesendet!' : 'Sicher senden' }}
+    </button>
 
     <div v-if="submitted" class="contact-form__success">
       <PhCheckCircle :size="20" weight="light" />
-      <p>Vielen Dank! Ich habe Ihre Nachricht erhalten und melde mich innerhalb von 24 Stunden bei Ihnen.</p>
+      <p>Vielen Dank! Ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.</p>
     </div>
 
-    <div class="contact-form__trust">
-      <div class="contact-form__trust-item">
-        <PhShieldCheck :size="16" weight="light" />
-        <span>SSL-verschlüsselt</span>
-      </div>
-      <div class="contact-form__trust-item">
-        <PhLock :size="16" weight="light" />
-        <span>Vertraulich</span>
-      </div>
-      <div class="contact-form__trust-item">
-        <PhClock :size="16" weight="light" />
-        <span>Antwort in 24h</span>
-      </div>
-    </div>
-
-    <p class="contact-form__hint">* Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.</p>
+    <p class="contact-form__hint">* Pflichtfelder</p>
   </form>
 </template>
 
 <script setup lang="ts">
-import { PhArrowRight, PhCheck, PhCheckCircle, PhShieldCheck, PhLock, PhClock } from '@phosphor-icons/vue'
+import { PhArrowRight, PhCheck, PhCheckCircle } from '@phosphor-icons/vue'
 
 const form = reactive({
   anrede: '',
@@ -128,15 +104,23 @@ const handleSubmit = () => {
 @use '~/assets/scss/variables' as *;
 
 .contact-form {
-  max-width: 700px;
-
   &__row {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 
     &--half {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
+      gap: 1rem;
+
+      @media (max-width: $bp-sm) {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &--thirds {
+      display: grid;
+      grid-template-columns: 130px 1fr 1fr;
+      gap: 1rem;
 
       @media (max-width: $bp-sm) {
         grid-template-columns: 1fr;
@@ -144,7 +128,7 @@ const handleSubmit = () => {
     }
   }
 
-  // Floating label fields
+  /* Floating label fields */
   &__float {
     position: relative;
 
@@ -152,7 +136,7 @@ const handleSubmit = () => {
       position: absolute;
       top: 0.85rem;
       left: 1rem;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       font-weight: 400;
       color: $color-gray;
       pointer-events: none;
@@ -162,17 +146,18 @@ const handleSubmit = () => {
       .optional {
         color: rgba($color-gray, 0.7);
         font-weight: 400;
+        font-size: 0.8rem;
       }
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 1.4rem 1rem 0.4rem;
-      border: 1.5px solid rgba($color-gray, 0.4);
+      padding: 1.3rem 1rem 0.4rem;
+      border: 1.5px solid rgba($color-gray, 0.35);
       border-radius: $radius-sm;
       font-family: $font-body;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: $color-text;
       background: $color-white;
       transition: all $transition-fast;
@@ -183,11 +168,10 @@ const handleSubmit = () => {
         box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
       }
 
-      // Float the label when focused or has content
       &:focus + label,
       &:not(:placeholder-shown) + label {
-        top: 0.3rem;
-        font-size: 0.72rem;
+        top: 0.25rem;
+        font-size: 0.68rem;
         font-weight: 600;
         color: $color-primary;
         letter-spacing: 0.3px;
@@ -200,7 +184,7 @@ const handleSubmit = () => {
 
     textarea {
       resize: vertical;
-      min-height: 140px;
+      min-height: 100px;
     }
 
     &--textarea label {
@@ -209,71 +193,57 @@ const handleSubmit = () => {
     }
   }
 
-  // Standard field (for selects)
+  /* Standard field (for selects) */
   &__field {
     display: flex;
     flex-direction: column;
 
     label {
-      font-size: 0.9rem;
+      font-size: 0.8rem;
       font-weight: 500;
       color: $color-primary;
-      margin-bottom: 0.5rem;
-
-      .optional {
-        color: $color-gray;
-        font-weight: 400;
-      }
+      margin-bottom: 0.4rem;
     }
 
-    input,
-    select,
-    textarea {
-      padding: 0.85rem 1rem;
-      border: 1.5px solid rgba($color-gray, 0.4);
+    select {
+      padding: 0.75rem 0.85rem;
+      border: 1.5px solid rgba($color-gray, 0.35);
       border-radius: $radius-sm;
       font-family: $font-body;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: $color-text;
       background: $color-white;
       transition: border-color $transition-fast;
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.85rem center;
+      padding-right: 2.2rem;
 
       &:focus {
         outline: none;
         border-color: $color-accent;
         box-shadow: 0 0 0 3px rgba($color-accent, 0.1);
       }
-
-      &::placeholder {
-        color: $color-gray;
-      }
-    }
-
-    select {
-      cursor: pointer;
-      appearance: none;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 1rem center;
-      padding-right: 2.5rem;
     }
   }
 
   &__checkbox {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
+    gap: 0.6rem;
     cursor: pointer;
 
     input[type="checkbox"] {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       margin-top: 2px;
       accent-color: $color-primary;
     }
 
     span {
-      font-size: 0.85rem;
+      font-size: 0.78rem;
       color: $color-text-light;
       line-height: 1.5;
 
@@ -284,33 +254,15 @@ const handleSubmit = () => {
     }
   }
 
-  &__promise {
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-    padding: 0.85rem 1.1rem;
-    background: rgba($color-accent, 0.08);
-    border: 1px solid rgba($color-accent, 0.2);
-    border-radius: $radius-sm;
-    margin-bottom: 2rem;
-    font-size: 0.88rem;
-    color: $color-primary;
-
-    svg {
-      color: $color-accent;
-      flex-shrink: 0;
-    }
-  }
-
   &__success {
     display: flex;
     align-items: flex-start;
-    gap: 0.6rem;
-    padding: 1rem 1.2rem;
+    gap: 0.5rem;
+    padding: 0.8rem 1rem;
     background: rgba(34, 139, 34, 0.06);
     border: 1px solid rgba(34, 139, 34, 0.2);
     border-radius: $radius-sm;
-    margin-top: 1rem;
+    margin-top: 0.8rem;
 
     svg {
       color: #228b22;
@@ -319,34 +271,15 @@ const handleSubmit = () => {
     }
 
     p {
-      font-size: 0.88rem;
+      font-size: 0.85rem;
       color: #1a6b1a;
       line-height: 1.5;
     }
   }
 
-  &__trust {
-    display: flex;
-    gap: 1.5rem;
-    margin-top: 1.2rem;
-    flex-wrap: wrap;
-  }
-
-  &__trust-item {
-    display: flex;
-    align-items: center;
-    gap: 0.35rem;
-    font-size: 0.78rem;
-    color: $color-gray;
-
-    svg {
-      color: $color-accent;
-    }
-  }
-
   &__hint {
-    margin-top: 1rem;
-    font-size: 0.8rem;
+    margin-top: 0.6rem;
+    font-size: 0.75rem;
     color: $color-gray;
   }
 }

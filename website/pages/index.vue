@@ -3,8 +3,8 @@
     <!-- Hero -->
     <SectionsHeroSection
       variant="home"
-      label="Rechtsanwalt in Hamburg"
-      subtitle="Rechtsanwalt und Strafverteidiger Philipp Schnoor – kompetente und persönliche Rechtsberatung in Hamburg. Ich setze mich entschlossen für Ihre Interessen ein."
+      label="Rechtsanwalt in Hamburg – klare Linie in streitigen Situationen"
+      subtitle="Rechtsanwalt und Strafverteidiger Philipp Schnoor – Kündigung, Räumung oder strafrechtlicher Vorwurf? In diesen Situationen kommt es auf die richtigen Schritte an. Ich übernehme Ihre Vertretung und sorge für eine klare Strategie."
       background-image="/images/Hero-Background.jpeg"
       background-video="/images/8716428-hd_1920_1080_25fps.mp4"
     >
@@ -39,7 +39,7 @@
         <div v-scroll-reveal data-stagger class="services__grid">
           <UiServiceCard
             title="Mietrecht"
-            description="Von Mietvertragsprüfung bis Räumungsschutz – ich schütze Ihre Rechte als Mieter oder Vermieter und finde faire Lösungen."
+            description="Streit im Mietverhältnis, Kündigung oder Zahlungsrückstände: Ich vertrete Mieter und Vermieter in konflikthaften Situationen und sorge für eine klare rechtliche Einordnung."
             to="/mietrecht"
             image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
           />
@@ -115,9 +115,9 @@ import { PhUserFocus, PhLightning, PhChatText, PhCertificate, PhPhone, PhArrowRi
 
 useSeoMeta({
   title: 'Rechtsanwalt Philipp Schnoor | Anwalt Hamburg | Mietrecht, Strafrecht, Verkehrsrecht',
-  ogTitle: 'Rechtsanwalt Philipp Schnoor – Anwalt & Strafverteidiger in Hamburg',
-  description: 'Rechtsanwalt Philipp Schnoor in Hamburg – Ihr Anwalt für Mietrecht, Strafrecht und Verkehrsrecht. Persönliche Beratung, schnelle Erreichbarkeit und kompetente Vertretung.',
-  ogDescription: 'Kompetente Rechtsberatung in Hamburg. Spezialisiert auf Mietrecht, Strafrecht und Verkehrsrecht. Jetzt Erstgespräch vereinbaren.',
+  ogTitle: 'Rechtsanwalt Philipp Schnoor – Anwalt & Strafverteidiger aus Hamburg',
+  description: 'Rechtsanwalt Philipp Schnoor aus Hamburg – Ihr Anwalt für Mietrecht, Strafrecht und Verkehrsrecht. Persönliche Beratung, schnelle Erreichbarkeit und kompetente Vertretung.',
+  ogDescription: 'Kompetente Rechtsberatung aus Hamburg. Spezialisiert auf Mietrecht, Strafrecht und Verkehrsrecht – persönlich, engagiert und lösungsorientiert.',
 })
 
 useLocalBusinessSchema()

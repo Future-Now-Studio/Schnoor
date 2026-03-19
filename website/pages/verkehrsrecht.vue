@@ -2,9 +2,9 @@
   <div>
     <SectionsHeroSection
       variant="page"
-      label="Verkehrsrecht Hamburg"
+      label="Anwalt für Verkehrsrecht aus Hamburg"
       title="Verkehrsrecht"
-      subtitle="Bußgeldbescheid, Fahrverbot oder Führerscheinentzug? Ich prüfe Ihren Fall und setze Ihre Rechte im Verkehrsrecht konsequent durch."
+      subtitle="Bußgeldbescheid, Fahrverbot oder Schadensersatz nach Verkehrsunfall? Ich prüfe Ihren Fall und setze Ihre Ansprüche konsequent durch."
       background-image="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80&fit=crop"
     />
 
@@ -13,7 +13,7 @@
       <div class="container">
         <div class="intro__grid">
           <div v-scroll-reveal="'fade-right'" class="intro__content">
-            <h2>Ihr Anwalt für Verkehrsrecht in Hamburg</h2>
+            <h2>Ihr Anwalt für Verkehrsrecht aus Hamburg</h2>
             <p>
               Ein Bußgeldbescheid, ein drohendes Fahrverbot oder gar der Entzug der Fahrerlaubnis – 
               im Verkehrsrecht steht schnell viel auf dem Spiel. Gerade wenn Ihre Mobilität für den 
@@ -87,20 +87,16 @@
       </div>
     </section>
 
-    <SectionsCtaSection
-      label="Verkehrsrecht Hamburg"
-      title="Bußgeldbescheid erhalten?"
-      text="Lassen Sie Ihren Bußgeldbescheid kostenlos prüfen. In vielen Fällen lohnt sich ein Einspruch – die Fehlerquote bei Blitzermessungen ist hoch."
-    />
+    <SectionsAboutContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
 useSeoMeta({
   title: 'Verkehrsrecht Hamburg | Rechtsanwalt Philipp Schnoor – Bußgeld, Fahrverbot, MPU',
-  ogTitle: 'Verkehrsrecht Hamburg – Rechtsanwalt Philipp Schnoor',
-  description: 'Anwalt für Verkehrsrecht in Hamburg. Einspruch gegen Bußgeldbescheid, Fahrverbot abwenden, MPU-Beratung. Rechtsanwalt Schnoor hilft Ihnen.',
-  ogDescription: 'Rechtsanwalt für Verkehrsrecht in Hamburg. Bußgeldbescheid, Fahrverbot, Führerscheinentzug – kompetente Vertretung.',
+  ogTitle: 'Verkehrsrecht – Rechtsanwalt Philipp Schnoor aus Hamburg',
+  description: 'Anwalt für Verkehrsrecht aus Hamburg. Einspruch gegen Bußgeldbescheid, Fahrverbot abwenden, Schadensersatz nach Verkehrsunfall. Rechtsanwalt Schnoor hilft Ihnen.',
+  ogDescription: 'Rechtsanwalt für Verkehrsrecht aus Hamburg. Bußgeldbescheid, Fahrverbot, Verkehrsunfall – kompetente Vertretung.',
 })
 
 const leistungen = [

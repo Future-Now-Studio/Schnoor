@@ -10,99 +10,54 @@
 
     <section class="kontakt section">
       <div class="container">
-        <div class="kontakt__grid">
-          <!-- Form -->
-          <div v-scroll-reveal="'fade-right'" class="kontakt__form-wrapper">
-            <h2>Schreiben Sie mir</h2>
-            <p class="kontakt__intro">
-              Das Kontaktformular ist der schnellste Weg zu mir. Schildern Sie kurz Ihr Anliegen und
-              wählen Sie Ihren bevorzugten Rückmeldeweg – ich melde mich persönlich bei Ihnen.
-            </p>
-            <UiContactForm />
+        <!-- Formular -->
+        <div v-scroll-reveal class="kontakt__form-block">
+          <h2>Schreiben Sie mir</h2>
+          <p class="kontakt__intro">
+            Schildern Sie kurz Ihr Anliegen und wählen Sie Ihren bevorzugten Rückmeldeweg –
+            ich melde mich persönlich bei Ihnen.
+          </p>
+          <UiContactForm />
+        </div>
+
+        <!-- Kontaktinfos kompakt -->
+        <div v-scroll-reveal class="kontakt__infos">
+          <div class="kontakt__info-item">
+            <PhMapPin :size="20" weight="light" />
+            <div>
+              <p><strong>Kanzlei Schnoor</strong></p>
+              <p>Papenreye 61, 22453 Hamburg</p>
+            </div>
           </div>
 
-          <!-- Info Sidebar -->
-          <aside v-scroll-reveal="'fade-left'" class="kontakt__info">
-            <div class="kontakt__card">
-              <h3>Kanzlei Schnoor</h3>
-              <div class="kontakt__detail">
-                <PhMapPin :size="20" weight="light" />
-                <div>
-                  <p>Philipp Schnoor</p>
-                  <p>Rechtsanwalt & Strafverteidiger</p>
-                  <p class="kontakt__address">Papenreye 61</p>
-                  <p>22453 Hamburg</p>
-                </div>
-              </div>
+          <div class="kontakt__info-item">
+            <PhPhone :size="20" weight="light" />
+            <a href="tel:+4940XXXXXXXX">040 – XXX XXX XX</a>
+          </div>
 
-              <div class="kontakt__detail">
-                <PhPhone :size="20" weight="light" />
-                <div>
-                  <a href="tel:+4940XXXXXXXX">040 – XXX XXX XX</a>
-                </div>
-              </div>
+          <div class="kontakt__info-item">
+            <PhEnvelope :size="20" weight="light" />
+            <a href="mailto:kontakt@schnoor-rechtsanwalt.de">kontakt@schnoor-rechtsanwalt.de</a>
+          </div>
 
-              <div class="kontakt__detail">
-                <PhEnvelope :size="20" weight="light" />
-                <div>
-                  <a href="mailto:kontakt@schnoor-rechtsanwalt.de">kontakt@schnoor-rechtsanwalt.de</a>
-                </div>
-              </div>
+          <div class="kontakt__info-item">
+            <PhClock :size="20" weight="light" />
+            <span>Termine nach Vereinbarung – telefonisch & per WhatsApp jederzeit erreichbar</span>
+          </div>
 
-              <div class="kontakt__detail">
-                <PhClock :size="20" weight="light" />
-                <div>
-                  <p><strong>Bürozeiten:</strong></p>
-                  <p>Mo – Fr: 09:00 – 18:00 Uhr</p>
-                  <p>Termine nach Vereinbarung</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="kontakt__card kontakt__card--accent">
-              <h3>Erstberatung</h3>
-              <p>
-                Im Erstgespräch schildern Sie mir Ihren Fall und ich gebe Ihnen eine erste Einschätzung 
-                der Rechtslage. Wir besprechen gemeinsam die möglichen Schritte und die zu erwartenden Kosten – 
-                transparent und verständlich.
-              </p>
-              <p>
-                Eine Erstberatung ist auch kurzfristig telefonisch oder per Video möglich.
-              </p>
-            </div>
-
-            <div class="kontakt__card kontakt__card--whatsapp">
-              <h3>WhatsApp</h3>
-              <p>Sie können mich auch unkompliziert per WhatsApp erreichen:</p>
-              <a
-                href="https://wa.me/4915123456789?text=Guten%20Tag%20Herr%20Schnoor%2C%20ich%20habe%20eine%20rechtliche%20Frage."
-                target="_blank"
-                rel="noopener noreferrer"
-                class="btn btn--primary"
-              >
-                <svg viewBox="0 0 32 32" width="18" height="18" fill="currentColor">
-                  <path d="M16.004 0h-.008C7.174 0 0 7.176 0 16c0 3.5 1.128 6.744 3.046 9.378L1.054 31.29l6.118-1.958A15.907 15.907 0 0016.004 32C24.826 32 32 24.822 32 16S24.826 0 16.004 0z"/>
-                </svg>
-                WhatsApp öffnen
-              </a>
-            </div>
-          </aside>
+          <a
+            href="https://wa.me/4915123456789?text=Guten%20Tag%20Herr%20Schnoor%2C%20ich%20habe%20eine%20rechtliche%20Frage."
+            target="_blank"
+            rel="noopener noreferrer"
+            class="kontakt__whatsapp"
+          >
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+              <path d="M12.003 0h-.006C5.376 0 0 5.382 0 12c0 2.625.846 5.058 2.285 7.034L.79 23.468l4.589-1.469A11.93 11.93 0 0012.003 24C18.62 24 24 18.617 24 12S18.62 0 12.003 0zm6.987 16.96c-.293.824-1.449 1.51-2.379 1.71-.636.136-1.467.244-4.263-.916-3.579-1.484-5.879-5.12-6.057-5.357-.171-.237-1.439-1.917-1.439-3.656s.911-2.593 1.233-2.949c.323-.356.705-.444.939-.444s.468.001.672.012c.216.011.505-.083.79.603.293.705.999 2.429 1.086 2.604.089.176.147.381.03.615-.117.234-.176.381-.351.586-.176.206-.369.459-.527.616-.176.176-.359.366-.155.718s.908 1.499 1.949 2.427c1.338 1.193 2.466 1.563 2.817 1.739.351.176.557.147.762-.088.206-.234.882-1.029 1.116-1.382.234-.356.468-.293.79-.176.323.117 2.043.965 2.394 1.14.351.176.585.264.672.41.089.147.089.824-.204 1.65z"/>
+            </svg>
+            WhatsApp schreiben
+          </a>
         </div>
       </div>
-    </section>
-
-    <!-- Google Maps -->
-    <section class="map">
-      <iframe
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2369.5!2d9.99!3d53.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTPCsDMzJzAwLjAiTiA5wrA1OSczMC4wIkU!5e0!3m2!1sde!2sde!4v1!5m2!1sde!2sde"
-        width="100%"
-        height="400"
-        style="border:0;"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Kanzlei Schnoor Hamburg – Standort"
-      ></iframe>
     </section>
   </div>
 </template>
@@ -123,95 +78,46 @@ useSeoMeta({
 @use '~/assets/scss/variables' as *;
 
 .kontakt {
-  &__grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 4rem;
-    align-items: flex-start;
+  &__form-block {
+    max-width: 720px;
+    margin: 0 auto 3rem;
 
-    @media (max-width: $bp-lg) {
-      grid-template-columns: 1fr;
-      gap: 3rem;
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
     }
   }
 
   &__intro {
     color: $color-text-light;
     margin-bottom: 2rem;
+    line-height: 1.7;
   }
 
-  &__info {
+  &__infos {
+    max-width: 720px;
+    margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     gap: 1.5rem;
+    padding-top: 2.5rem;
+    border-top: 1px solid rgba($color-gray, 0.2);
+    align-items: center;
   }
 
-  &__card {
-    background: $color-white;
-    border: 1px solid rgba($color-gray, 0.15);
-    border-radius: $radius-md;
-    padding: 2rem;
-
-    h3 {
-      font-size: 1.3rem;
-      margin-bottom: 1.2rem;
-    }
-
-    p {
-      font-size: 0.9rem;
-      color: $color-text-light;
-      line-height: 1.6;
-    }
-
-    &--accent {
-      background: $color-off-white;
-      border-color: rgba($color-accent, 0.3);
-    }
-
-    &--whatsapp {
-      background: rgba(37, 211, 102, 0.05);
-      border-color: rgba(37, 211, 102, 0.2);
-
-      h3 {
-        color: #128c7e;
-      }
-
-      .btn {
-        margin-top: 1rem;
-        background: #25d366;
-        border-color: #25d366;
-
-        &:hover {
-          background: #1da851;
-        }
-      }
-    }
-  }
-
-  &__detail {
+  &__info-item {
     display: flex;
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-    align-items: flex-start;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: $color-text;
 
     svg {
       color: $color-primary-light;
       flex-shrink: 0;
-      margin-top: 2px;
-    }
-
-    p {
-      margin-bottom: 0;
-      font-size: 0.9rem;
-      color: $color-text;
     }
 
     a {
-      font-size: 0.9rem;
       color: $color-primary-dark;
       text-decoration: none;
 
@@ -219,17 +125,30 @@ useSeoMeta({
         color: $color-primary-light;
       }
     }
+
+    p {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
   }
 
-  &__address {
-    margin-top: 0.5rem;
-  }
-}
+  &__whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: $radius-sm;
+    background: rgba(#25d366, 0.1);
+    color: #128c7e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all $transition-fast;
 
-.map {
-  iframe {
-    display: block;
-    width: 100%;
+    &:hover {
+      background: rgba(#25d366, 0.2);
+    }
   }
 }
 </style>

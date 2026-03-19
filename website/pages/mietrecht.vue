@@ -2,7 +2,7 @@
   <div>
     <SectionsHeroSection
       variant="page"
-      label="Mietrecht Hamburg"
+      label="Anwalt für Mietrecht aus Hamburg"
       title="Mietrecht"
       subtitle="Ob als Mieter oder Vermieter – ich schütze Ihre Rechte und finde faire Lösungen für mietrechtliche Streitigkeiten in Hamburg."
       background-image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80&fit=crop"
@@ -15,14 +15,14 @@
           <div v-scroll-reveal="'fade-right'" class="intro__content">
             <h2>Ihr Anwalt für Mietrecht in Hamburg</h2>
             <p>
-              Das Mietrecht betrifft uns alle – ob als Mieter oder Vermieter. Doch gerade in Hamburg, wo der 
-              Wohnungsmarkt angespannt ist, kommt es häufig zu Konflikten. Ungerechtfertigte Mieterhöhungen, 
-              fehlerhafte Nebenkostenabrechnungen oder drohende Kündigungen können existenzielle Auswirkungen haben.
+              Der Hamburger Wohnungsmarkt ist angespannt – Konflikte zwischen Mietern und Vermietern sind daher
+              keine Ausnahme. Zahlungsrückstände, Kündigungen, Mietminderungen oder Streit über Nebenkosten
+              können schnell eskalieren und erhebliche Folgen haben.
             </p>
             <p>
-              Als Rechtsanwalt für Mietrecht in Hamburg stehe ich Ihnen mit juristischer Kompetenz und 
-              persönlichem Engagement zur Seite. Ich prüfe Ihren Fall gründlich, berate Sie über Ihre 
-              Möglichkeiten und setze Ihre Rechte konsequent durch – außergerichtlich oder vor Gericht.
+              Als Rechtsanwalt für Mietrecht in Hamburg vertrete ich sowohl Mieter als auch Vermieter in
+              streitigen Auseinandersetzungen. Ich prüfe Ihren Fall gründlich, gebe Ihnen eine klare
+              Einschätzung und setze Ihre Rechte konsequent durch – außergerichtlich und vor Gericht.
             </p>
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
@@ -87,52 +87,53 @@
       </div>
     </section>
 
-    <SectionsCtaSection
-      label="Mietrecht Hamburg"
-      title="Probleme mit Ihrem Mietverhältnis?"
-      text="Schildern Sie mir Ihren Fall unverbindlich. Gemeinsam finden wir die beste Lösung für Ihre mietrechtliche Situation."
-    />
+    <SectionsAboutContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
 useSeoMeta({
   title: 'Mietrecht Hamburg | Rechtsanwalt Philipp Schnoor – Anwalt für Mieter & Vermieter',
-  ogTitle: 'Mietrecht Hamburg – Rechtsanwalt Philipp Schnoor',
-  description: 'Anwalt für Mietrecht in Hamburg. Mietvertragsprüfung, Mietminderung, Nebenkostenabrechnung, Kündigung & Räumungsschutz. Jetzt beraten lassen.',
-  ogDescription: 'Rechtsanwalt für Mietrecht in Hamburg. Kompetente Vertretung bei Mietstreitigkeiten. Jetzt Erstberatung vereinbaren.',
+  ogTitle: 'Mietrecht – Rechtsanwalt Philipp Schnoor aus Hamburg',
+  description: 'Anwalt für Mietrecht aus Hamburg. Mietvertrag, Mietminderung, Kündigung & Räumung, Zahlungsrückstände. Jetzt beraten lassen.',
+  ogDescription: 'Rechtsanwalt für Mietrecht aus Hamburg. Kompetente Vertretung bei Mietstreitigkeiten. Jetzt Erstberatung vereinbaren.',
 })
 
 const leistungen = [
   {
     icon: '<svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zm-1 2l5 5h-5V4zM8 13h8v1.5H8V13zm0 3.5h8V18H8v-1.5zm0-7h3v1.5H8V9.5z" opacity="0.85"/></svg>',
-    title: 'Mietvertragsprüfung',
-    desc: 'Ich prüfe Ihren Mietvertrag auf unwirksame Klauseln und berate Sie zu Ihren Rechten und Pflichten.',
+    title: 'Mietvertrag',
+    desc: 'Mietverträge legen die Grundlage jedes Mietverhältnisses. Ich prüfe und gestalte Verträge so, dass Regelungen rechtssicher und im Streitfall belastbar sind.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" width="30" height="30"><circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.12"/><path d="M12 6v12M8 10l4-4 4 4M8 14l4 4 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     title: 'Mietminderung',
-    desc: 'Bei Mängeln in der Wohnung haben Sie das Recht auf Mietminderung. Ich berechne die angemessene Höhe und setze Ihren Anspruch durch.',
-  },
-  {
-    icon: '<svg viewBox="0 0 24 24" width="30" height="30"><rect x="2" y="4" width="20" height="16" rx="3" fill="currentColor" opacity="0.12"/><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="15" r="1.5" fill="currentColor"/><path d="M11 15h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
-    title: 'Nebenkostenabrechnung',
-    desc: 'Viele Nebenkostenabrechnungen sind fehlerhaft. Ich prüfe Ihre Abrechnung und mache zu viel gezahlte Beträge geltend.',
+    desc: 'Mietminderungen sind häufig Streitpunkt. Ich kläre die rechtliche Situation und bringe Ordnung in Fragen von Berechtigung und Höhe.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" width="30" height="30"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" fill="currentColor" opacity="0.12"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>',
-    title: 'Kündigung & Räumungsschutz',
-    desc: 'Bei einer Kündigung prüfe ich die Wirksamkeit und vertrete Sie im Räumungsprozess zum Schutz Ihres Wohnraums.',
+    title: 'Kündigung & Räumung',
+    desc: 'Kündigung und Räumung sind oft existenziell. Ich begleite Sie bei der Beendigung von Mietverhältnissen und sorge für eine rechtssichere Umsetzung.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" width="30" height="30"><circle cx="12" cy="12" r="10" fill="currentColor" opacity="0.1"/><path d="M12 6v12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="M17 9.5H9.5a2.5 2.5 0 000 5h5a2.5 2.5 0 010 5H7" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/></svg>',
+    title: 'Zahlungsrückstände',
+    desc: 'Offene Forderungen können schnell eskalieren. Ich unterstütze bei der Klärung und Durchsetzung von Zahlungsansprüchen.',
+  },
+  {
+    icon: '<svg viewBox="0 0 24 24" width="30" height="30"><rect x="2" y="4" width="20" height="16" rx="3" fill="currentColor" opacity="0.12"/><rect x="2" y="4" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M2 10h20" stroke="currentColor" stroke-width="1.5"/><circle cx="7" cy="15" r="1.5" fill="currentColor"/><path d="M11 15h7" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>',
+    title: 'Streitige Mietverhältnisse',
+    desc: 'Wenn ein Mietverhältnis festgefahren ist, braucht es eine klare Struktur. Ich übernehme die rechtliche Einordnung und begleite Sie im weiteren Vorgehen.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" width="30" height="30"><rect x="2" y="2" width="20" height="20" rx="4" fill="currentColor" opacity="0.12"/><path d="M7 12h4v5H7v-5z" fill="currentColor" opacity="0.3"/><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>',
     title: 'Schönheitsreparaturen',
-    desc: 'Viele Schönheitsreparaturklauseln sind unwirksam. Ich prüfe, ob Sie tatsächlich renovieren müssen.',
+    desc: 'Am Ende des Mietverhältnisses geht es oft um Renovierungspflichten. Ich ordne die vertragliche und rechtliche Situation ein und schaffe eine belastbare Grundlage für das weitere Vorgehen.',
   },
   {
     icon: '<svg viewBox="0 0 24 24" width="30" height="30"><rect x="3" y="11" width="18" height="11" rx="3" fill="currentColor" opacity="0.12"/><rect x="3" y="11" width="18" height="11" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/><path d="M7 11V7a5 5 0 0110 0v4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="12" cy="16.5" r="1.5" fill="currentColor"/></svg>',
     title: 'Mietkaution',
-    desc: 'Ob Kautionsrückforderung oder Streitigkeiten über die Kaution – ich setze Ihre Ansprüche konsequent durch.',
+    desc: 'Die Mietkaution ist regelmäßig Streitpunkt nach Beendigung des Mietverhältnisses. Ich sorge für eine klare Abwicklung und eine rechtssichere Einordnung der Ansprüche.',
   },
 ]
 
@@ -156,40 +157,40 @@ const caseStudies = [
     result: 'Kündigung unwirksam – Wohnung gesichert',
   },
   {
-    category: 'Nebenkostenabrechnung',
+    category: 'Zahlungsrückstände',
     steps: [
-      { label: 'Ausgangslage', text: 'Nachforderung von 1.800 € aus der Nebenkostenabrechnung erschien dem Mandanten überhöht.' },
-      { label: 'Strategie', text: 'Detailprüfung der Abrechnung: Verteilerschlüssel, umlagefähige Kosten und Fristen kontrolliert.' },
-      { label: 'Ergebnis', text: 'Mehrere Fehler identifiziert – statt Nachzahlung erhielt der Mandant ein Guthaben.' },
+      { label: 'Ausgangslage', text: 'Mieter hatte erhebliche Mietrückstände aufgebaut und stellte Zahlungen vollständig ein.' },
+      { label: 'Strategie', text: 'Forderungen strukturiert aufbereitet und konsequent geltend gemacht.' },
+      { label: 'Ergebnis', text: 'Ein Großteil der offenen Forderungen wurde ausgeglichen.' },
     ],
-    result: '1.800 € Nachforderung abgewehrt + 420 € Guthaben',
+    result: 'Forderungen durchgesetzt + Liquidität gesichert',
   },
 ]
 
 const faqItems: { question: string; answer: string }[] = [
   {
-    question: 'Wann darf mein Vermieter die Miete erhöhen?',
-    answer: 'Eine Mieterhöhung ist nur unter bestimmten Voraussetzungen zulässig. Der Vermieter muss die Kappungsgrenze beachten (in Hamburg max. 15% in drei Jahren) und die ortsübliche Vergleichsmiete darf nicht überschritten werden. Ich prüfe, ob die Mieterhöhung in Ihrem Fall rechtmäßig ist.',
+    question: 'Wann ist eine Kündigung rechtlich wirksam?',
+    answer: 'Eine Kündigung ist nur wirksam, wenn sie formell und inhaltlich den gesetzlichen Anforderungen entspricht. Entscheidend sind insbesondere die richtige Begründung (z. B. Zahlungsverzug oder Eigenbedarf), die Einhaltung der Kündigungsfristen sowie die ordnungsgemäße Zustellung. In der Praxis scheitern Kündigungen häufig an formellen Fehlern oder unzureichender Begründung. Eine sorgfältige Prüfung ist daher in beide Richtungen sinnvoll – sowohl zur Vorbereitung als auch zur Abwehr.',
   },
   {
-    question: 'Was kann ich bei Mängeln in meiner Wohnung tun?',
-    answer: 'Bei Mängeln sollten Sie den Vermieter unverzüglich schriftlich informieren und eine Frist zur Beseitigung setzen. Bei erheblichen Mängeln haben Sie das Recht auf Mietminderung. Ich berate Sie zur richtigen Vorgehensweise und angemessenen Minderungshöhe.',
+    question: 'Wie gehe ich mit Mietrückständen um?',
+    answer: 'Bei Mietrückständen kommt es maßgeblich auf die Höhe und Dauer der offenen Forderungen an. Je nach Situation kann bereits ein Zahlungsverzug eine Kündigung rechtfertigen. Typischerweise erfolgt zunächst eine strukturierte Aufarbeitung der Rückstände. Darauf aufbauend wird entschieden, ob außergerichtlich vorgegangen wird oder unmittelbar rechtliche Schritte eingeleitet werden. Fehler im Vorgehen – insbesondere bei Fristen und Kündigungen – können die Durchsetzung erheblich erschweren oder verzögern.',
   },
   {
-    question: 'Ist meine Nebenkostenabrechnung korrekt?',
-    answer: 'Studien zeigen, dass über 50% aller Nebenkostenabrechnungen fehlerhaft sind. Häufige Fehler sind falsche Verteilerschlüssel, nicht umlagefähige Kosten oder Fristversäumnisse. Ich prüfe Ihre Abrechnung auf alle relevanten Fehlerquellen.',
+    question: 'Wann ist eine Mietminderung berechtigt?',
+    answer: 'Eine Mietminderung setzt voraus, dass ein erheblicher Mangel vorliegt, der die Gebrauchstauglichkeit der Wohnung beeinträchtigt. Die Höhe der Minderung richtet sich nach Art, Umfang und Dauer des Mangels. In der Praxis sind sowohl die Berechtigung als auch die Höhe häufig streitig. Minderungen werden teilweise zu hoch angesetzt oder ohne ausreichende Grundlage vorgenommen. Eine rechtliche Einordnung des Einzelfalls ist daher entscheidend.',
   },
   {
-    question: 'Kann ich gegen eine Kündigung vorgehen?',
-    answer: 'Ja, in vielen Fällen ist eine Kündigung unwirksam. Wichtig ist, dass Sie innerhalb der gesetzlichen Fristen Widerspruch einlegen. Ich prüfe die Wirksamkeit der Kündigung und vertrete Sie im Kündigungsschutzverfahren.',
+    question: 'Wie läuft eine Räumung rechtlich ab?',
+    answer: 'Eine Räumung erfolgt nicht unmittelbar, sondern in mehreren Schritten. Voraussetzung ist in der Regel eine wirksame Kündigung. Räumt der Mieter die Wohnung nicht freiwillig, muss ein Räumungstitel erwirkt werden. Das Verfahren umfasst typischerweise die Kündigung, die Klage und – nach erfolgreichem Abschluss – die Zwangsräumung. Fehler im Vorfeld, insbesondere bei der Kündigung, können das gesamte Verfahren verzögern oder scheitern lassen.',
   },
   {
-    question: 'Muss ich beim Auszug Schönheitsreparaturen durchführen?',
-    answer: 'Viele Schönheitsreparaturklauseln in Mietverträgen sind unwirksam – insbesondere starre Fristenpläne und Endrenovierungsklauseln. Ich prüfe Ihren Mietvertrag und informiere Sie, ob und in welchem Umfang Sie tatsächlich renovieren müssen.',
+    question: 'Was gilt bei Schönheitsreparaturen und Kaution?',
+    answer: 'Am Ende des Mietverhältnisses kommt es häufig zu Streit über Renovierungspflichten und die Abrechnung der Mietkaution. Ob und in welchem Umfang Schönheitsreparaturen geschuldet sind, hängt maßgeblich von der konkreten vertraglichen Regelung ab. Viele Klauseln sind unwirksam oder nur eingeschränkt durchsetzbar. Gleiches gilt für die Verwendung der Kaution, die nur unter bestimmten Voraussetzungen einbehalten werden darf. Eine rechtliche Prüfung schafft hier Klarheit.',
   },
   {
     question: 'Übernimmt meine Rechtsschutzversicherung die Kosten?',
-    answer: 'Die meisten Rechtsschutzversicherungen mit Mietrechtsschutz übernehmen die Anwaltskosten nach einer Wartezeit von üblicherweise drei Monaten. Ich stelle gerne eine Deckungsanfrage bei Ihrer Versicherung.',
+    answer: 'Ob die Rechtsschutzversicherung die Kosten übernimmt, hängt vom jeweiligen Versicherungsvertrag ab. In der Regel besteht Versicherungsschutz für mietrechtliche Streitigkeiten, sofern eine entsprechende Police abgeschlossen wurde und die Wartezeit eingehalten ist. Vor Einleitung rechtlicher Schritte empfiehlt sich eine Deckungsanfrage. Diese übernehme ich auf Wunsch, sodass frühzeitig Klarheit über die Kostenübernahme besteht.',
   },
 ]
 
@@ -222,8 +223,26 @@ useFaqSchema(faqItems)
 .leistungen {
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+
+    /* Center last row: 7 items = 4+3, offset item 5 by half a column */
+    > :nth-child(5) {
+      grid-column-start: 1;
+    }
+
+    @media (min-width: calc($bp-lg + 1px)) {
+      /* Use 8-col subgrid trick: 4 items = 2 cols each, 3 items centered */
+      grid-template-columns: repeat(8, 1fr);
+
+      > * {
+        grid-column: span 2;
+      }
+
+      > :nth-child(5) {
+        grid-column: 2 / span 2;
+      }
+    }
 
     @media (max-width: $bp-lg) {
       grid-template-columns: repeat(2, 1fr);

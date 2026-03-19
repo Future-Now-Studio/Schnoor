@@ -27,7 +27,7 @@
     <div class="container">
       <div v-scroll-reveal class="section-header">
         <span class="section-label">Mandantenstimmen</span>
-        <h2>Das sagen unsere Mandanten</h2>
+        <h2>Das sagen meine Mandanten</h2>
         <div class="reviews__rating">
           <div class="reviews__stars">
             <PhStar v-for="i in 5" :key="i" :size="22" weight="fill" class="reviews__star" />
