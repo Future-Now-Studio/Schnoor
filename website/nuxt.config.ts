@@ -50,6 +50,7 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: 'netlify',
     prerender: {
       routes: ['/', '/mietrecht', '/strafrecht', '/verkehrsrecht', '/kontakt', '/datenschutz', '/impressum'],
     },
