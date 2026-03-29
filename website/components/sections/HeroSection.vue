@@ -42,7 +42,7 @@
           <slot name="title">{{ title }}</slot>
         </h1>
         <div class="hero__gold-bar"></div>
-        <p class="hero__subtitle">{{ subtitle }}</p>
+        <p class="hero__subtitle" v-html="subtitle"></p>
         <div class="hero__actions" v-if="$slots.actions">
           <slot name="actions" />
         </div>
@@ -154,6 +154,10 @@ onUnmounted(() => {
     object-fit: cover;
     object-position: center 30%;
     will-change: transform;
+
+    @media (max-width: $bp-md) {
+      object-position: 70% 30%;
+    }
   }
 
   &__image {
@@ -277,6 +281,11 @@ onUnmounted(() => {
     font-weight: 300;
     opacity: 0;
     transform: translateY(12px);
+
+    :deep(strong) {
+      font-weight: 600;
+      color: rgba($color-white, 0.95);
+    }
   }
 
   &__actions {

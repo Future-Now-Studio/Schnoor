@@ -4,7 +4,7 @@
       variant="page"
       label="Strafverteidiger aus Hamburg"
       title="Strafrecht – jetzt zählt jede Entscheidung"
-      subtitle="Vorladung, Hausdurchsuchung oder Ermittlungsverfahren: In dieser Situation sollten Sie keine unüberlegten Aussagen machen. Ich übernehme Ihre Verteidigung und sorge für eine klare Strategie."
+      subtitle="<strong>Vorladung</strong>, <strong>Hausdurchsuchung</strong> oder <strong>Ermittlungsverfahren</strong>: In dieser Situation sollten Sie keine unüberlegten Aussagen machen. Ich übernehme Ihre <strong>Verteidigung</strong> und sorge für eine <strong>klare Strategie</strong>."
       background-image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80&fit=crop"
     />
 
@@ -26,7 +26,7 @@
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
             <img
-              src="https://images.unsplash.com/photo-1589994965851-a8f479c573a9?w=600&h=400&fit=crop"
+              src="~/assets/images/J68A4920.jpg"
               alt="Strafverteidigung Hamburg – Rechtsanwalt Schnoor"
               loading="lazy"
             />
@@ -74,7 +74,7 @@
               Jetzt Strafverteidiger kontaktieren
               <PhArrowRight :size="18" weight="light" />
             </NuxtLink>
-            <a href="tel:+4940XXXXXXXX" class="urgent__call">
+            <a href="tel:+4915730871236" class="urgent__call">
               <PhPhone :size="18" weight="light" />
               Sofort anrufen
             </a>

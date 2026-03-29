@@ -4,8 +4,8 @@
       variant="page"
       label="Anwalt für Verkehrsrecht aus Hamburg"
       title="Verkehrsrecht"
-      subtitle="Bußgeldbescheid, Fahrverbot oder Schadensersatz nach Verkehrsunfall? Ich prüfe Ihren Fall und setze Ihre Ansprüche konsequent durch."
-      background-image="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1920&q=80&fit=crop"
+      subtitle="<strong>Bußgeldbescheid</strong>, <strong>Fahrverbot</strong> oder <strong>Schadensersatz</strong> nach Verkehrsunfall? Ich prüfe Ihren Fall und setze Ihre <strong>Ansprüche konsequent</strong> durch."
+      :background-image="heroImage"
     />
 
     <!-- Einleitung -->
@@ -27,7 +27,7 @@
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
             <img
-              src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=400&fit=crop"
+              :src="introImage"
               alt="Verkehrsrecht Hamburg – Rechtsanwalt Schnoor"
               loading="lazy"
             />
@@ -92,6 +92,9 @@
 </template>
 
 <script setup lang="ts">
+import heroImage from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.jpg'
+import introImage from '~/assets/images/J68A5309.jpg'
+
 useSeoMeta({
   title: 'Verkehrsrecht Hamburg | Rechtsanwalt Philipp Schnoor – Bußgeld, Fahrverbot, MPU',
   ogTitle: 'Verkehrsrecht – Rechtsanwalt Philipp Schnoor aus Hamburg',

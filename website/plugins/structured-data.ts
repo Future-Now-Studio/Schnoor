@@ -14,7 +14,7 @@ export default defineNuxtPlugin(() => {
               jobTitle: 'Rechtsanwalt & Strafverteidiger',
               url: 'https://schnoor-rechtsanwalt.de',
               image: 'https://schnoor-rechtsanwalt.de/og-image.jpg',
-              telephone: '+4940XXXXXXXX',
+              telephone: '+4915730871236',
               email: 'kontakt@schnoor-rechtsanwalt.de',
               address: {
                 '@type': 'PostalAddress',

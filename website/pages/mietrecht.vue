@@ -4,7 +4,7 @@
       variant="page"
       label="Anwalt für Mietrecht aus Hamburg"
       title="Mietrecht"
-      subtitle="Ob als Mieter oder Vermieter – ich schütze Ihre Rechte und finde faire Lösungen für mietrechtliche Streitigkeiten in Hamburg."
+      subtitle="Ob als <strong>Mieter</strong> oder <strong>Vermieter</strong> – ich schütze Ihre <strong>Rechte</strong> und finde <strong>faire Lösungen</strong> für mietrechtliche Streitigkeiten in Hamburg."
       background-image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80&fit=crop"
     />
 
@@ -27,7 +27,7 @@
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
             <img
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
+              src="~/assets/images/J68A4920.jpg"
               alt="Mietrecht Hamburg – Rechtsanwalt Schnoor"
               loading="lazy"
             />

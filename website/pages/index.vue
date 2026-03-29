@@ -4,9 +4,9 @@
     <SectionsHeroSection
       variant="home"
       label="Rechtsanwalt in Hamburg – klare Linie in streitigen Situationen"
-      subtitle="Rechtsanwalt und Strafverteidiger Philipp Schnoor – Kündigung, Räumung oder strafrechtlicher Vorwurf? In diesen Situationen kommt es auf die richtigen Schritte an. Ich übernehme Ihre Vertretung und sorge für eine klare Strategie."
+      subtitle="Rechtsanwalt und Strafverteidiger <strong>Philipp Schnoor</strong> – <strong>Kündigung</strong>, <strong>Räumung</strong> oder <strong>strafrechtlicher Vorwurf</strong>? In diesen Situationen kommt es auf die <strong>richtigen Schritte</strong> an. Ich übernehme Ihre Vertretung und sorge für eine <strong>klare Strategie</strong>."
       background-image="/images/Hero-Background.jpeg"
-      background-video="/images/8716428-hd_1920_1080_25fps.mp4"
+      background-video="/images/Schnoor-Hero.mp4"
     >
       <template #title>
         Ihr Recht.<br />
@@ -17,7 +17,7 @@
           Erstberatung vereinbaren
           <PhArrowRight :size="18" weight="light" />
         </NuxtLink>
-        <a href="tel:+4940XXXXXXXX" class="btn btn--outline-light">
+        <a href="tel:+4915730871236" class="btn btn--outline-light">
           <PhPhone :size="18" weight="light" />
           Jetzt anrufen
         </a>
@@ -55,7 +55,7 @@
             title="Verkehrsrecht"
             description="Bußgeldbescheid, Fahrverbot oder Führerscheinentzug? Ich prüfe Ihren Fall und setze Ihre Rechte durch."
             to="/verkehrsrecht"
-            image="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&h=400&fit=crop"
+            :image="verkehrsrechtImage"
           />
         </div>
       </div>
@@ -112,6 +112,7 @@
 
 <script setup lang="ts">
 import { PhUserFocus, PhLightning, PhChatText, PhCertificate, PhPhone, PhArrowRight } from '@phosphor-icons/vue'
+import verkehrsrechtImage from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.jpg'
 
 useSeoMeta({
   title: 'Rechtsanwalt Philipp Schnoor | Anwalt Hamburg | Mietrecht, Strafrecht, Verkehrsrecht',

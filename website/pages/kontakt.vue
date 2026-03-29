@@ -4,7 +4,7 @@
       variant="page"
       label="Kontakt"
       title="Kontakt aufnehmen"
-      subtitle="Schildern Sie mir Ihr Anliegen. Ich melde mich zeitnah bei Ihnen – persönlich und vertraulich."
+      subtitle="Schildern Sie mir Ihr Anliegen. Ich melde mich <strong>zeitnah</strong> bei Ihnen – <strong>persönlich</strong> und <strong>vertraulich</strong>."
       :background-image="schnoor"
     />
 
@@ -23,16 +23,8 @@
         <!-- Kontaktinfos kompakt -->
         <div v-scroll-reveal class="kontakt__infos">
           <div class="kontakt__info-item">
-            <PhMapPin :size="20" weight="light" />
-            <div>
-              <p><strong>Kanzlei Schnoor</strong></p>
-              <p>Papenreye 61, 22453 Hamburg</p>
-            </div>
-          </div>
-
-          <div class="kontakt__info-item">
             <PhPhone :size="20" weight="light" />
-            <a href="tel:+4940XXXXXXXX">040 – XXX XXX XX</a>
+            <a href="tel:+4915730871236">+49 1573 0871236</a>
           </div>
 
           <div class="kontakt__info-item">
@@ -40,13 +32,8 @@
             <a href="mailto:kontakt@schnoor-rechtsanwalt.de">kontakt@schnoor-rechtsanwalt.de</a>
           </div>
 
-          <div class="kontakt__info-item">
-            <PhClock :size="20" weight="light" />
-            <span>Termine nach Vereinbarung – telefonisch & per WhatsApp jederzeit erreichbar</span>
-          </div>
-
           <a
-            href="https://wa.me/4915123456789?text=Guten%20Tag%20Herr%20Schnoor%2C%20ich%20habe%20eine%20rechtliche%20Frage."
+            href="https://wa.me/4915730871236?text=Guten%20Tag%20Herr%20Schnoor%2C%20ich%20habe%20eine%20rechtliche%20Frage."
             target="_blank"
             rel="noopener noreferrer"
             class="kontakt__whatsapp"
@@ -56,6 +43,11 @@
             </svg>
             WhatsApp schreiben
           </a>
+
+          <div class="kontakt__info-item">
+            <PhClock :size="20" weight="light" />
+            <span>Termine ausschließlich nach Vereinbarung – in Notfällen telefonisch immer erreichbar</span>
+          </div>
         </div>
       </div>
     </section>
@@ -63,8 +55,8 @@
 </template>
 
 <script setup lang="ts">
-import { PhMapPin, PhPhone, PhEnvelope, PhClock } from '@phosphor-icons/vue'
-import schnoor from '~/assets/images/Schnoor.webp'
+import { PhPhone, PhEnvelope, PhClock } from '@phosphor-icons/vue'
+import schnoor from '~/assets/images/J68A4920.jpg'
 
 useSeoMeta({
   title: 'Kontakt | Rechtsanwalt Philipp Schnoor Hamburg – Termin vereinbaren',

@@ -1,20 +1,18 @@
 <template>
   <section ref="sectionRef" class="stats" aria-label="Kanzlei in Zahlen">
-    <div class="container stats__grid">
+    <div class="container stats__row">
       <div
         v-for="(stat, i) in stats"
         :key="stat.label"
         class="stats__item"
-        :class="{ 'stats__item--done': stat.done }"
-        :style="{ transitionDelay: `${i * 0.15}s` }"
+        :class="{ 'stats__item--visible': animated }"
+        :style="{ '--delay': `${i * 0.15}s` }"
       >
-        <span class="stats__number">
-          {{ stat.prefix }}{{ animated ? stat.display : '0' }}{{ stat.suffix }}
+        <span class="stats__value">
+          <template v-if="stat.static">{{ stat.staticText }}</template>
+          <template v-else>{{ animated ? stat.display : '0' }}{{ stat.suffix }}</template>
         </span>
         <span class="stats__label">{{ stat.label }}</span>
-        <div v-if="stat.done" class="stats__particles">
-          <span v-for="p in 6" :key="p" class="stats__particle" :style="particleStyle(p)"></span>
-        </div>
       </div>
     </div>
   </section>
@@ -22,8 +20,9 @@
 
 <script setup lang="ts">
 const stats = reactive([
-  { target: 7, display: '0', prefix: '', suffix: '+', label: 'Jahre Erfahrung', done: false },
-  { target: 4.9, display: '0', prefix: '', suffix: '★', label: 'Google Bewertung', decimal: true, done: false },
+  { target: 7, display: '0', suffix: '+', label: 'Jahre Erfahrung', done: false, static: false, staticText: '' },
+  { target: 100, display: '0', suffix: '+', label: 'Mandanten vertreten', done: false, static: false, staticText: '' },
+  { target: 0, display: '', suffix: '', label: 'Erreichbarkeit bei Notfällen', done: false, static: true, staticText: '24h' },
 ])
 
 const sectionRef = ref<HTMLElement>()
@@ -33,23 +32,19 @@ function easeOutCubic(t: number): number {
   return 1 - Math.pow(1 - t, 3)
 }
 
-function particleStyle(i: number) {
-  const angle = (i / 6) * 360
-  const delay = i * 0.05
-  return {
-    '--angle': `${angle}deg`,
-    '--delay': `${delay}s`,
-  }
-}
-
 function animateCounters() {
   if (animated.value) return
   animated.value = true
 
-  const duration = 1500
+  const duration = 1600
 
   stats.forEach((stat, index) => {
-    const startTime = performance.now() + index * 150
+    if (stat.static) {
+      setTimeout(() => { stat.done = true }, index * 150 + duration)
+      return
+    }
+
+    const startTime = performance.now() + index * 200
 
     function update(currentTime: number) {
       const elapsed = currentTime - startTime
@@ -62,11 +57,7 @@ function animateCounters() {
       const easedProgress = easeOutCubic(progress)
       const currentValue = easedProgress * stat.target
 
-      if ((stat as any).decimal) {
-        stat.display = currentValue.toFixed(1).replace('.', ',')
-      } else {
-        stat.display = Math.round(currentValue).toString()
-      }
+      stat.display = Math.round(currentValue).toString()
 
       if (progress < 1) {
         requestAnimationFrame(update)
@@ -101,104 +92,92 @@ onMounted(() => {
 
 .stats {
   background: $color-primary;
-  padding: 3rem 0;
+  border-top: 1px solid rgba($color-accent, 0.15);
 
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-}
-
-.stats__item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 1rem 0;
-  position: relative;
-
-  &--done .stats__number {
-    animation: statsBounce 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  &:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    right: 0;
-    top: 20%;
-    height: 60%;
-    width: 1px;
-    background: rgba($color-accent, 0.15);
+  &__row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem 0;
+    gap: 3rem;
 
     @media (max-width: $bp-md) {
-      display: none;
+      gap: 1.5rem;
+    }
+
+    @media (max-width: $bp-sm) {
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1.25rem 0;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    opacity: 0;
+    transform: translateY(6px);
+    transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s),
+                transform 0.5s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s);
+    position: relative;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: -1.5rem;
+      top: 20%;
+      height: 60%;
+      width: 1px;
+      background: rgba($color-accent, 0.2);
+
+      @media (max-width: $bp-md) {
+        right: -0.75rem;
+      }
+
+      @media (max-width: $bp-sm) {
+        display: none;
+      }
+    }
+
+    &--visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__value {
+    font-family: $font-heading;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.01em;
+    color: $color-accent;
+
+    @media (max-width: $bp-md) {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__label {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: rgba($color-white, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+
+    @media (max-width: $bp-md) {
+      font-size: 0.65rem;
+      letter-spacing: 1px;
     }
   }
 }
 
-.stats__number {
-  font-family: $font-heading;
-  font-size: 2.2rem;
-  font-weight: 800;
-  color: $color-accent-light;
-  letter-spacing: -0.02em;
-  line-height: 1;
-  position: relative;
-}
-
-.stats__label {
-  font-size: 0.8rem;
-  font-weight: 500;
-  color: rgba($color-white, 0.7);
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.stats__particles {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  pointer-events: none;
-}
-
-.stats__particle {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: $color-accent;
-  opacity: 0;
-  animation: particleBurst 0.6s cubic-bezier(0.22, 1, 0.36, 1) var(--delay, 0s) forwards;
-}
-
-@keyframes statsBounce {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.15); }
-  70% { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-@keyframes particleBurst {
-  0% {
-    opacity: 0.8;
-    transform: rotate(var(--angle)) translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: rotate(var(--angle)) translateX(28px);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .stats__item--done .stats__number {
-    animation: none !important;
-  }
-  .stats__particle {
-    animation: none !important;
+  .stats__item {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
   }
 }
 </style>

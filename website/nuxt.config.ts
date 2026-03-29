@@ -11,6 +11,12 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: 'de' },
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
+      script: [
+        {
+          src: 'https://cloud.ccm19.de/app.js?apiKey=06cd01fef0d5405811628f562181a5c3e2dd42e02809b05f&domain=69c27873bfcbfb93bb074e12',
+          referrerpolicy: 'origin',
+        },
+      ],
       link: [
         { rel: 'icon', type: 'image/png', href: '/favicon.png' },
         { rel: 'apple-touch-icon', href: '/favicon.png' },

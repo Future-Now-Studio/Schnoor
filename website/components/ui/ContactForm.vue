@@ -1,29 +1,24 @@
 <template>
-  <form class="contact-form" @submit.prevent="handleSubmit">
-    <div class="contact-form__row contact-form__row--thirds">
-      <div class="contact-form__field">
-        <label for="anrede">Anrede *</label>
-        <select id="anrede" v-model="form.anrede" required>
-          <option value="" disabled>Bitte wählen</option>
-          <option value="Herr">Herr</option>
-          <option value="Frau">Frau</option>
-          <option value="Divers">Divers</option>
-        </select>
-      </div>
-      <div class="contact-form__float">
-        <input id="vorname" v-model="form.vorname" type="text" required placeholder=" " />
-        <label for="vorname">Vorname *</label>
-      </div>
-      <div class="contact-form__float">
-        <input id="nachname" v-model="form.nachname" type="text" required placeholder=" " />
-        <label for="nachname">Nachname *</label>
+  <form class="contact-form" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" novalidate @submit.prevent="handleSubmit">
+    <input type="hidden" name="form-name" value="kontakt" />
+    <p class="hidden" aria-hidden="true"><input name="bot-field" /></p>
+
+    <p class="contact-form__note">
+      Ich melde mich innerhalb von 24h bei Ihnen – in dringenden Fällen bitte
+      <a href="tel:+4915730871236">direkt anrufen</a>.
+    </p>
+
+    <div class="contact-form__row">
+      <div class="contact-form__float" :class="{ 'contact-form__float--error': errors.name }">
+        <input id="name" v-model="form.name" type="text" placeholder=" " />
+        <label for="name">Name</label>
       </div>
     </div>
 
     <div class="contact-form__row contact-form__row--half">
-      <div class="contact-form__float">
-        <input id="email" v-model="form.email" type="email" required placeholder=" " />
-        <label for="email">E-Mail-Adresse *</label>
+      <div class="contact-form__float" :class="{ 'contact-form__float--error': errors.email }">
+        <input id="email" v-model="form.email" type="email" placeholder=" " />
+        <label for="email">E-Mail-Adresse</label>
       </div>
       <div class="contact-form__float">
         <input id="telefon" v-model="form.telefon" type="tel" placeholder=" " />
@@ -31,43 +26,29 @@
       </div>
     </div>
 
-    <div class="contact-form__row contact-form__row--half">
-      <div class="contact-form__field">
-        <label for="kontaktweg">Bevorzugter Rückmeldeweg</label>
-        <select id="kontaktweg" v-model="form.kontaktweg">
-          <option value="" disabled>Bitte wählen</option>
-          <option value="E-Mail">E-Mail</option>
-          <option value="Telefon">Telefon</option>
-          <option value="WhatsApp">WhatsApp</option>
-        </select>
-      </div>
-      <div></div>
-    </div>
-
     <div class="contact-form__row">
-      <div class="contact-form__float contact-form__float--textarea">
+      <div class="contact-form__float contact-form__float--textarea" :class="{ 'contact-form__float--error': errors.nachricht }">
         <textarea
           id="nachricht"
           v-model="form.nachricht"
-          required
           rows="4"
           placeholder=" "
         ></textarea>
-        <label for="nachricht">Ihre Nachricht *</label>
+        <label for="nachricht">Ihre Nachricht</label>
       </div>
     </div>
 
     <div class="contact-form__row">
-      <label class="contact-form__checkbox">
-        <input type="checkbox" v-model="form.datenschutz" required />
-        <span>Ich habe die <NuxtLink to="/datenschutz">Datenschutzerklärung</NuxtLink> gelesen und stimme der Verarbeitung meiner Daten zu. *</span>
+      <label class="contact-form__checkbox" :class="{ 'contact-form__checkbox--error': errors.datenschutz }">
+        <input type="checkbox" v-model="form.datenschutz" />
+        <span>Ich habe die <NuxtLink to="/datenschutz">Datenschutzerklärung</NuxtLink> gelesen und stimme der Verarbeitung meiner Daten zu.</span>
       </label>
     </div>
 
-    <button type="submit" class="btn btn--accent" :disabled="submitted">
+    <button type="submit" class="btn btn--accent" :disabled="submitted || submitting">
       <PhCheck v-if="submitted" :size="18" weight="bold" />
       <PhArrowRight v-else :size="18" weight="light" />
-      {{ submitted ? 'Nachricht gesendet!' : 'Sicher senden' }}
+      {{ submitting ? 'Wird gesendet…' : submitted ? 'Nachricht gesendet!' : 'Sicher senden' }}
     </button>
 
     <div v-if="submitted" class="contact-form__success">
@@ -75,7 +56,9 @@
       <p>Vielen Dank! Ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.</p>
     </div>
 
-    <p class="contact-form__hint">* Pflichtfelder</p>
+    <div v-if="submitError" class="contact-form__error">
+      <p>Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder rufen Sie direkt an.</p>
+    </div>
   </form>
 </template>
 
@@ -83,20 +66,65 @@
 import { PhArrowRight, PhCheck, PhCheckCircle } from '@phosphor-icons/vue'
 
 const form = reactive({
-  anrede: '',
-  vorname: '',
-  nachname: '',
+  name: '',
   email: '',
   telefon: '',
-  kontaktweg: '',
   nachricht: '',
   datenschutz: false,
 })
 
-const submitted = ref(false)
+const errors = reactive({
+  name: false,
+  email: false,
+  nachricht: false,
+  datenschutz: false,
+})
 
-const handleSubmit = () => {
-  submitted.value = true
+const submitted = ref(false)
+const submitting = ref(false)
+const submitError = ref(false)
+
+function validate(): boolean {
+  errors.name = !form.name.trim()
+  errors.email = !form.email.trim() || !/\S+@\S+\.\S+/.test(form.email)
+  errors.nachricht = !form.nachricht.trim()
+  errors.datenschutz = !form.datenschutz
+
+  return !errors.name && !errors.email && !errors.nachricht && !errors.datenschutz
+}
+
+// Clear error on input
+watch(() => form.name, () => { if (errors.name) errors.name = false })
+watch(() => form.email, () => { if (errors.email) errors.email = false })
+watch(() => form.nachricht, () => { if (errors.nachricht) errors.nachricht = false })
+watch(() => form.datenschutz, () => { if (errors.datenschutz) errors.datenschutz = false })
+
+const handleSubmit = async () => {
+  if (!validate()) return
+  submitting.value = true
+  submitError.value = false
+
+  try {
+    const body = new URLSearchParams({
+      'form-name': 'kontakt',
+      name: form.name,
+      email: form.email,
+      telefon: form.telefon,
+      nachricht: form.nachricht,
+    })
+
+    await $fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: body.toString(),
+    })
+
+    submitted.value = true
+  } catch {
+    submitError.value = true
+  } finally {
+    submitting.value = false
+  }
 }
 </script>
 
@@ -104,22 +132,29 @@ const handleSubmit = () => {
 @use '~/assets/scss/variables' as *;
 
 .contact-form {
+  &__note {
+    font-size: 0.85rem;
+    color: $color-text-light;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+
+    a {
+      color: $color-primary-dark;
+      font-weight: 600;
+      text-decoration: none;
+
+      &:hover {
+        color: $color-primary-light;
+      }
+    }
+  }
+
   &__row {
     margin-bottom: 1rem;
 
     &--half {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-
-      @media (max-width: $bp-sm) {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    &--thirds {
-      display: grid;
-      grid-template-columns: 130px 1fr 1fr;
       gap: 1rem;
 
       @media (max-width: $bp-sm) {
@@ -191,6 +226,25 @@ const handleSubmit = () => {
       background: $color-white;
       padding: 0 0.25rem;
     }
+
+    /* Error state */
+    &--error {
+      input,
+      textarea {
+        border-color: #c0392b;
+        background: rgba(#c0392b, 0.02);
+      }
+
+      label {
+        color: #c0392b;
+      }
+
+      input:focus,
+      textarea:focus {
+        box-shadow: 0 0 0 3px rgba(#c0392b, 0.1);
+        border-color: #c0392b;
+      }
+    }
   }
 
   /* Standard field (for selects) */
@@ -252,6 +306,36 @@ const handleSubmit = () => {
         text-decoration: underline;
       }
     }
+
+    /* Error state */
+    &--error {
+      span {
+        color: #c0392b;
+      }
+
+      input[type="checkbox"] {
+        outline: 2px solid #c0392b;
+        outline-offset: 1px;
+      }
+    }
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  &__error {
+    padding: 0.8rem 1rem;
+    background: rgba(192, 57, 43, 0.06);
+    border: 1px solid rgba(192, 57, 43, 0.2);
+    border-radius: $radius-sm;
+    margin-top: 0.8rem;
+
+    p {
+      font-size: 0.85rem;
+      color: #c0392b;
+      line-height: 1.5;
+    }
   }
 
   &__success {
@@ -275,12 +359,6 @@ const handleSubmit = () => {
       color: #1a6b1a;
       line-height: 1.5;
     }
-  }
-
-  &__hint {
-    margin-top: 0.6rem;
-    font-size: 0.75rem;
-    color: $color-gray;
   }
 }
 </style>

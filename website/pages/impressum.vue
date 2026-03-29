@@ -3,28 +3,19 @@
     <SectionsHeroSection variant="page" title="Impressum" />
     <section class="legal section">
       <div class="container legal__content">
-        <h2>Angaben gemäß § 5 TMG</h2>
-        <p>Philipp Schnoor<br />Rechtsanwalt &amp; Strafverteidiger</p>
-        <p>Papenreye 61<br />22453 Hamburg</p>
+        <p>Philipp Schnoor<br />Grootsruhe 4<br />20537 Hamburg</p>
 
         <h3>Kontakt</h3>
-        <p>Telefon: 040 – XXX XXX XX<br />E-Mail: kontakt@schnoor-rechtsanwalt.de</p>
+        <p>Telefon: 0157 30871236<br />Telefax: 040 / 36 85 39 41<br />E-Mail: info@schnoorrechtsanwalt.de</p>
 
-        <h3>Berufsbezeichnung und berufsrechtliche Regelungen</h3>
-        <p>Berufsbezeichnung: Rechtsanwalt<br />Zuständige Kammer: Hanseatische Rechtsanwaltskammer Hamburg<br />Verliehen in: Deutschland</p>
-        <p>Es gelten folgende berufsrechtliche Regelungen:</p>
-        <ul>
-          <li>Bundesrechtsanwaltsordnung (BRAO)</li>
-          <li>Berufsordnung für Rechtsanwälte (BORA)</li>
-          <li>Fachanwaltsordnung (FAO)</li>
-          <li>Rechtsanwaltsvergütungsgesetz (RVG)</li>
-        </ul>
+        <h3>Umsatzsteuer-ID</h3>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />Folgt</p>
 
-        <h3>Berufshaftpflichtversicherung</h3>
-        <p>[Name und Anschrift der Versicherung]<br />Räumlicher Geltungsbereich: Deutschland</p>
+        <h3>Angaben zur Berufshaftpflichtversicherung</h3>
+        <p><strong>Name und Sitz des Versicherers:</strong><br />Nürnberger Versicherung<br />Ostendstraße 100<br />90334 Nürnberg<br />Telefon 0911 531-5<br />Fax 0911 531-3206</p>
 
-        <h3>Streitschlichtung</h3>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit. Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+        <h3>Verbraucherstreitbeilegung/Universalschlichtungsstelle</h3>
+        <p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
       </div>
     </section>
   </div>

@@ -62,7 +62,7 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
               </div>
               <div class="footer__contact-item">
                 <PhPhone :size="16" weight="light" />
-                <a href="tel:+4940XXXXXXXX">040 – XXX XXX XX</a>
+                <a href="tel:+4915730871236">+49 1573 0871236</a>
               </div>
               <div class="footer__contact-item">
                 <PhEnvelope :size="16" weight="light" />
@@ -72,18 +72,8 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
           </div>
 
           <div class="footer__col">
-            <h4 class="footer__heading">Bürozeiten</h4>
-            <div class="footer__hours">
-              <div class="footer__hour-row">
-                <span>Mo – Fr</span>
-                <span>09:00 – 18:00</span>
-              </div>
-              <div class="footer__hour-row">
-                <span>Sa – So</span>
-                <span>geschlossen</span>
-              </div>
-              <p class="footer__hour-note">Termine nach Vereinbarung<br />auch außerhalb der Bürozeiten</p>
-            </div>
+            <h4 class="footer__heading">Termine</h4>
+            <p class="footer__hour-note">Termine ausschließlich nach Vereinbarung<br />In Notfällen telefonisch immer erreichbar</p>
           </div>
         </div>
       </div>
