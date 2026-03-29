@@ -139,8 +139,13 @@ watch(menuOpen, (open) => {
 
     @media (max-width: $bp-lg) {
       position: fixed;
-      inset: 0;
-      background: $color-primary;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: 1000;
+      background: rgba($color-primary, 0.98);
+      backdrop-filter: blur(12px);
       flex-direction: column;
       justify-content: center;
       gap: 2rem;
