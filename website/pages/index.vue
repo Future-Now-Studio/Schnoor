@@ -6,7 +6,7 @@
       label="Rechtsanwalt in Hamburg – klare Linie in streitigen Situationen"
       subtitle="Rechtsanwalt und Strafverteidiger <strong>Philipp Schnoor</strong> – <strong>Kündigung</strong>, <strong>Räumung</strong> oder <strong>strafrechtlicher Vorwurf</strong>? In diesen Situationen kommt es auf die <strong>richtigen Schritte</strong> an. Ich übernehme Ihre Vertretung und sorge für eine <strong>klare Strategie</strong>."
       background-image="/images/Hero-Background.jpeg"
-      background-video="/images/Schnoor-Hero.mp4"
+      background-video="/images/hf_20260331_120132_a4a8c9c3-250f-4f7c-ae52-af5044ed39ab.mp4"
     >
       <template #title>
         Ihr Rechtsanwalt<br />
