@@ -43,7 +43,7 @@ export default defineNuxtConfig({
     defaultLocale: 'de',
   },
 
-  ogImage: { enabled: true },
+  ogImage: { enabled: false },
 
   image: {
     quality: 80,
