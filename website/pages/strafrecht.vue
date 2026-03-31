@@ -161,15 +161,23 @@
           <h2>Weitere Leistungen</h2>
         </div>
         <div v-scroll-reveal class="weitere__grid">
-          <NuxtLink to="/mietrecht" class="weitere__card">
-            <span class="weitere__label">Mietrecht Hamburg</span>
-            <p>Kündigung, Mietminderung oder Räumung – ich vertrete Mieter und Vermieter in Hamburg.</p>
-            <span class="weitere__arrow">→</span>
+          <NuxtLink to="/mietrecht" class="weitere__card" :style="{ '--bg': `url(${weitereImgMietrecht})` }">
+            <div class="weitere__overlay"></div>
+            <div class="weitere__content">
+              <span class="weitere__badge">Rechtsgebiet</span>
+              <span class="weitere__label">Mietrecht Hamburg</span>
+              <p>Kündigung, Mietminderung oder Räumung – ich vertrete Mieter und Vermieter in Hamburg.</p>
+              <span class="weitere__cta">Mehr erfahren <span class="weitere__arrow">→</span></span>
+            </div>
           </NuxtLink>
-          <NuxtLink to="/verkehrsrecht" class="weitere__card">
-            <span class="weitere__label">Verkehrsrecht Hamburg</span>
-            <p>Bußgeldbescheid, Fahrverbot oder Verkehrsunfall – kompetente Vertretung im Verkehrsrecht.</p>
-            <span class="weitere__arrow">→</span>
+          <NuxtLink to="/verkehrsrecht" class="weitere__card" :style="{ '--bg': `url(${weitereImgVerkehr})` }">
+            <div class="weitere__overlay"></div>
+            <div class="weitere__content">
+              <span class="weitere__badge">Rechtsgebiet</span>
+              <span class="weitere__label">Verkehrsrecht Hamburg</span>
+              <p>Bußgeldbescheid, Fahrverbot oder Verkehrsunfall – kompetente Vertretung im Verkehrsrecht.</p>
+              <span class="weitere__cta">Mehr erfahren <span class="weitere__arrow">→</span></span>
+            </div>
           </NuxtLink>
         </div>
       </div>
@@ -182,6 +190,8 @@
 <script setup lang="ts">
 import { PhArrowRight, PhWarning, PhPhone } from '@phosphor-icons/vue'
 import strafrechtHeroImage from '~/assets/images/strafrecht-hero.webp'
+import weitereImgMietrecht from '~/assets/images/mietrecht-hero.webp'
+import weitereImgVerkehr from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.webp'
 
 useSeoMeta({
   title: 'Strafrecht Hamburg | Strafverteidiger Philipp Schnoor – Rechtsanwalt',
@@ -605,48 +615,91 @@ useFaqSchema(faqItems)
   }
 
   &__card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    padding: 1.8rem 2rem;
-    background: $color-white;
-    border: 1px solid rgba($color-primary-light, 0.12);
+    position: relative;
+    min-height: 260px;
     border-radius: $radius-lg;
+    overflow: hidden;
+    background: var(--bg) center / cover no-repeat $color-primary;
     text-decoration: none;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    display: flex;
+    align-items: flex-end;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 
     &:hover {
-      border-color: rgba($color-accent, 0.4);
-      box-shadow: 0 8px 24px rgba($color-primary, 0.08);
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 56px rgba($color-primary-dark, 0.35);
+
+      .weitere__overlay {
+        opacity: 0.75;
+      }
 
       .weitere__arrow {
-        transform: translateX(4px);
-        color: $color-accent-dark;
+        transform: translateX(5px);
       }
     }
   }
 
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba($color-primary-dark, 0.96) 0%,
+      rgba($color-primary, 0.65) 55%,
+      rgba($color-primary-dark, 0.2) 100%
+    );
+    opacity: 0.88;
+    transition: opacity 0.4s ease;
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+    width: 100%;
+  }
+
+  &__badge {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: $color-accent;
+    margin-bottom: 0.1rem;
+  }
+
   &__label {
     font-family: $font-heading;
-    font-size: 1.1rem;
+    font-size: 1.45rem;
     font-weight: 700;
-    color: $color-primary;
+    color: $color-white;
+    line-height: 1.15;
   }
 
   p {
-    font-size: 0.9rem;
-    color: $color-text-light;
+    font-size: 0.87rem;
+    color: rgba($color-white, 0.7);
     line-height: 1.6;
-    margin: 0;
-    flex: 1;
+    margin: 0.25rem 0 0.6rem;
+  }
+
+  &__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: $color-accent;
+    letter-spacing: 0.3px;
   }
 
   &__arrow {
-    font-size: 1.1rem;
-    color: $color-primary-light;
-    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    margin-top: 0.25rem;
+    display: inline-block;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   }
 }
 </style>
