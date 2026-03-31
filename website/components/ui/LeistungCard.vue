@@ -40,7 +40,8 @@ defineProps<{
     transform: translateY(-3px);
 
     .lk__icon-wrap {
-      background: $color-primary;
+      background: rgba($color-accent, 0.15);
+      border-color: rgba($color-accent, 0.3);
       transform: rotate(-4deg) scale(1.05);
     }
 
@@ -67,11 +68,12 @@ defineProps<{
     width: 52px;
     height: 52px;
     border-radius: 14px;
-    background: $color-primary;
+    background: rgba($color-primary, 0.07);
+    border: 1.5px solid rgba($color-primary, 0.1);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: $color-accent;
+    color: $color-primary;
     margin-bottom: 1.25rem;
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     flex-shrink: 0;
