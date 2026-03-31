@@ -3,7 +3,7 @@
     <SectionsHeroSection
       variant="page"
       label="Anwalt für Verkehrsrecht aus Hamburg"
-      title="Verkehrsrecht"
+      title="Verkehrsrecht Hamburg"
       subtitle="<strong>Bußgeldbescheid</strong>, <strong>Fahrverbot</strong> oder <strong>Schadensersatz</strong> nach Verkehrsunfall? Ich prüfe Ihren Fall und setze Ihre <strong>Ansprüche konsequent</strong> durch."
       :background-image="heroImage"
     />
@@ -87,13 +87,35 @@
       </div>
     </section>
 
+    <!-- Weitere Rechtsgebiete -->
+    <section class="weitere section">
+      <div class="container">
+        <div v-scroll-reveal class="section-header">
+          <span class="section-label">Rechtsgebiete</span>
+          <h2>Weitere Leistungen</h2>
+        </div>
+        <div v-scroll-reveal class="weitere__grid">
+          <NuxtLink to="/strafrecht" class="weitere__card">
+            <span class="weitere__label">Strafrecht Hamburg</span>
+            <p>Vorladung, Hausdurchsuchung oder Ermittlungsverfahren – ich übernehme Ihre Strafverteidigung.</p>
+            <span class="weitere__arrow">→</span>
+          </NuxtLink>
+          <NuxtLink to="/mietrecht" class="weitere__card">
+            <span class="weitere__label">Mietrecht Hamburg</span>
+            <p>Kündigung, Mietminderung oder Räumung – ich vertrete Mieter und Vermieter in Hamburg.</p>
+            <span class="weitere__arrow">→</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <SectionsAboutContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
-import heroImage from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.jpg'
-import introImage from '~/assets/images/J68A5309.jpg'
+import heroImage from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.webp'
+import introImage from '~/assets/images/J68A5309.webp'
 
 useSeoMeta({
   title: 'Verkehrsrecht Hamburg | Rechtsanwalt Philipp Schnoor – Bußgeld, Fahrverbot, MPU',
@@ -253,5 +275,62 @@ useFaqSchema(faqItems)
 
 .faq-section .section-header {
   margin-bottom: 2rem;
+}
+
+.weitere {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.8rem 2rem;
+    background: $color-white;
+    border: 1px solid rgba($color-primary-light, 0.12);
+    border-radius: $radius-lg;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      border-color: rgba($color-accent, 0.4);
+      box-shadow: 0 8px 24px rgba($color-primary, 0.08);
+      transform: translateY(-3px);
+
+      .weitere__arrow {
+        transform: translateX(4px);
+        color: $color-accent-dark;
+      }
+    }
+  }
+
+  &__label {
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $color-text-light;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__arrow {
+    font-size: 1.1rem;
+    color: $color-primary-light;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    margin-top: 0.25rem;
+  }
 }
 </style>

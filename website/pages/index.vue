@@ -9,8 +9,8 @@
       background-video="/images/Schnoor-Hero.mp4"
     >
       <template #title>
-        Ihr Recht.<br />
-        <span class="highlight">Mein Engagement.</span>
+        Ihr Rechtsanwalt<br />
+        <span class="highlight">aus Hamburg.</span>
       </template>
       <template #actions>
         <NuxtLink to="/kontakt" class="btn btn--accent">
@@ -41,14 +41,16 @@
             title="Mietrecht"
             description="Streit im Mietverhältnis, Kündigung oder Zahlungsrückstände: Ich vertrete Mieter und Vermieter in konflikthaften Situationen und sorge für eine klare rechtliche Einordnung."
             to="/mietrecht"
-            image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop"
+            :image="mietrechtCardImage"
+            alt="Rechtsanwalt Mietrecht Hamburg – Kanzlei Schnoor"
           />
 
           <UiServiceCard
             title="Strafrecht"
             description="Als erfahrener Strafverteidiger stehe ich Ihnen vom Ermittlungsverfahren bis zur Hauptverhandlung konsequent zur Seite."
             to="/strafrecht"
-            image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=600&h=400&fit=crop"
+            :image="strafrechtCardImage"
+            alt="Strafverteidiger Hamburg – Rechtsanwalt Schnoor"
           />
 
           <UiServiceCard
@@ -56,6 +58,7 @@
             description="Bußgeldbescheid, Fahrverbot oder Führerscheinentzug? Ich prüfe Ihren Fall und setze Ihre Rechte durch."
             to="/verkehrsrecht"
             :image="verkehrsrechtImage"
+            alt="Rechtsanwalt Verkehrsrecht Hamburg – Kanzlei Schnoor"
           />
         </div>
       </div>
@@ -112,7 +115,9 @@
 
 <script setup lang="ts">
 import { PhUserFocus, PhLightning, PhChatText, PhCertificate, PhPhone, PhArrowRight } from '@phosphor-icons/vue'
-import verkehrsrechtImage from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.jpg'
+import verkehrsrechtImage from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.webp'
+import mietrechtCardImage from '~/assets/images/mietrecht-card.webp'
+import strafrechtCardImage from '~/assets/images/strafrecht-card.webp'
 
 useSeoMeta({
   title: 'Rechtsanwalt Philipp Schnoor | Anwalt Hamburg | Mietrecht, Strafrecht, Verkehrsrecht',
@@ -126,7 +131,7 @@ useLocalBusinessSchema()
 const advantages = [
   {
     title: 'Persönliche Betreuung',
-    desc: 'Bei mir sind Sie keine Aktennummer. Ich nehme mir Zeit für Ihren Fall und bin persönlich für Sie da.',
+    desc: 'Bei mir sind Sie kein Aktenzeichen. Ich nehme mir Zeit für Ihren Fall und bin persönlich für Sie da.',
   },
   {
     title: 'Schnelle Erreichbarkeit',

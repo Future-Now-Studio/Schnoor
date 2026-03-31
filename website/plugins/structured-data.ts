@@ -15,7 +15,7 @@ export default defineNuxtPlugin(() => {
               url: 'https://schnoor-rechtsanwalt.de',
               image: 'https://schnoor-rechtsanwalt.de/og-image.jpg',
               telephone: '+4915730871236',
-              email: 'kontakt@schnoor-rechtsanwalt.de',
+              email: 'info@schnoorrechtsanwalt.de',
               address: {
                 '@type': 'PostalAddress',
                 streetAddress: 'Papenreye 61',

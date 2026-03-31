@@ -1,7 +1,7 @@
 <template>
   <NuxtLink :to="to" class="sc">
     <div class="sc__image">
-      <img :src="image" :alt="title" loading="lazy" />
+      <img :src="image" :alt="alt || `Rechtsanwalt ${title} Hamburg – Kanzlei Schnoor`" loading="lazy" />
       <div class="sc__overlay"></div>
     </div>
     <div class="sc__body">
@@ -24,6 +24,7 @@ defineProps<{
   description: string
   to: string
   image: string
+  alt?: string
 }>()
 </script>
 

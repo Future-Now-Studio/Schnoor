@@ -3,8 +3,8 @@
     <SectionsHeroSection
       variant="page"
       label="Kontakt"
-      title="Kontakt aufnehmen"
-      subtitle="Schildern Sie mir Ihr Anliegen. Ich melde mich <strong>zeitnah</strong> bei Ihnen – <strong>persönlich</strong> und <strong>vertraulich</strong>."
+      title="Kontakt – Rechtsanwalt Hamburg"
+      subtitle="Schildern Sie mir Ihr Anliegen im <strong>Mietrecht</strong>, <strong>Strafrecht</strong> oder <strong>Verkehrsrecht</strong>. Ich melde mich <strong>zeitnah</strong> bei Ihnen – <strong>persönlich</strong> und <strong>vertraulich</strong>."
       :background-image="schnoor"
     />
 
@@ -29,7 +29,7 @@
 
           <div class="kontakt__info-item">
             <PhEnvelope :size="20" weight="light" />
-            <a href="mailto:kontakt@schnoor-rechtsanwalt.de">kontakt@schnoor-rechtsanwalt.de</a>
+            <a href="mailto:info@schnoorrechtsanwalt.de">info@schnoorrechtsanwalt.de</a>
           </div>
 
           <a
@@ -56,7 +56,7 @@
 
 <script setup lang="ts">
 import { PhPhone, PhEnvelope, PhClock } from '@phosphor-icons/vue'
-import schnoor from '~/assets/images/J68A4920.jpg'
+import schnoor from '~/assets/images/Schnoor-Kontak.webp'
 
 useSeoMeta({
   title: 'Kontakt | Rechtsanwalt Philipp Schnoor Hamburg – Termin vereinbaren',

@@ -66,7 +66,7 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
               </div>
               <div class="footer__contact-item">
                 <PhEnvelope :size="16" weight="light" />
-                <a href="mailto:kontakt@schnoor-rechtsanwalt.de">kontakt@schnoor-rechtsanwalt.de</a>
+                <a href="mailto:info@schnoorrechtsanwalt.de">info@schnoorrechtsanwalt.de</a>
               </div>
             </div>
           </div>

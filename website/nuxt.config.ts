@@ -15,6 +15,7 @@ export default defineNuxtConfig({
         {
           src: 'https://cloud.ccm19.de/app.js?apiKey=06cd01fef0d5405811628f562181a5c3e2dd42e02809b05f&domain=69c27873bfcbfb93bb074e12',
           referrerpolicy: 'origin',
+          async: true,
         },
       ],
       link: [
@@ -42,7 +43,7 @@ export default defineNuxtConfig({
     defaultLocale: 'de',
   },
 
-  ogImage: { enabled: false },
+  ogImage: { enabled: true },
 
   image: {
     quality: 80,

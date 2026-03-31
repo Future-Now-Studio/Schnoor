@@ -3,9 +3,9 @@
     <SectionsHeroSection
       variant="page"
       label="Strafverteidiger aus Hamburg"
-      title="Strafrecht – jetzt zählt jede Entscheidung"
+      title="Strafrecht Hamburg – jetzt zählt jede Entscheidung"
       subtitle="<strong>Vorladung</strong>, <strong>Hausdurchsuchung</strong> oder <strong>Ermittlungsverfahren</strong>: In dieser Situation sollten Sie keine unüberlegten Aussagen machen. Ich übernehme Ihre <strong>Verteidigung</strong> und sorge für eine <strong>klare Strategie</strong>."
-      background-image="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=80&fit=crop"
+      :background-image="strafrechtHeroImage"
     />
 
     <!-- Einleitung -->
@@ -26,7 +26,7 @@
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
             <img
-              src="~/assets/images/J68A4920.jpg"
+              src="~/assets/images/J68A5211.webp"
               alt="Strafverteidigung Hamburg – Rechtsanwalt Schnoor"
               loading="lazy"
             />
@@ -153,12 +153,35 @@
       </div>
     </section>
 
+    <!-- Weitere Rechtsgebiete -->
+    <section class="weitere section">
+      <div class="container">
+        <div v-scroll-reveal class="section-header">
+          <span class="section-label">Rechtsgebiete</span>
+          <h2>Weitere Leistungen</h2>
+        </div>
+        <div v-scroll-reveal class="weitere__grid">
+          <NuxtLink to="/mietrecht" class="weitere__card">
+            <span class="weitere__label">Mietrecht Hamburg</span>
+            <p>Kündigung, Mietminderung oder Räumung – ich vertrete Mieter und Vermieter in Hamburg.</p>
+            <span class="weitere__arrow">→</span>
+          </NuxtLink>
+          <NuxtLink to="/verkehrsrecht" class="weitere__card">
+            <span class="weitere__label">Verkehrsrecht Hamburg</span>
+            <p>Bußgeldbescheid, Fahrverbot oder Verkehrsunfall – kompetente Vertretung im Verkehrsrecht.</p>
+            <span class="weitere__arrow">→</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <SectionsAboutContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
 import { PhArrowRight, PhWarning, PhPhone } from '@phosphor-icons/vue'
+import strafrechtHeroImage from '~/assets/images/strafrecht-hero.webp'
 
 useSeoMeta({
   title: 'Strafrecht Hamburg | Strafverteidiger Philipp Schnoor – Rechtsanwalt',
@@ -568,5 +591,62 @@ useFaqSchema(faqItems)
 
 .faq-section .section-header {
   margin-bottom: 2rem;
+}
+
+.weitere {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.8rem 2rem;
+    background: $color-white;
+    border: 1px solid rgba($color-primary-light, 0.12);
+    border-radius: $radius-lg;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      border-color: rgba($color-accent, 0.4);
+      box-shadow: 0 8px 24px rgba($color-primary, 0.08);
+      transform: translateY(-3px);
+
+      .weitere__arrow {
+        transform: translateX(4px);
+        color: $color-accent-dark;
+      }
+    }
+  }
+
+  &__label {
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $color-text-light;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__arrow {
+    font-size: 1.1rem;
+    color: $color-primary-light;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    margin-top: 0.25rem;
+  }
 }
 </style>

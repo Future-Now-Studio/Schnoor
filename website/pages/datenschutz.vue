@@ -19,7 +19,7 @@
         <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre personenbezogenen Daten vertraulich und entsprechend den gesetzlichen Datenschutzvorschriften sowie dieser Datenschutzerklärung.</p>
 
         <h3>Hinweis zur verantwortlichen Stelle</h3>
-        <p>Philipp Schnoor<br />Papenreye 61<br />22453 Hamburg<br />E-Mail: kontakt@schnoor-rechtsanwalt.de</p>
+        <p>Philipp Schnoor<br />Papenreye 61<br />22453 Hamburg<br />E-Mail: info@schnoorrechtsanwalt.de</p>
 
         <h2>4. Datenerfassung auf dieser Website</h2>
         <h3>Kontaktformular</h3>

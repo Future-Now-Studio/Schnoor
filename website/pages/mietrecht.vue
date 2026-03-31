@@ -3,9 +3,9 @@
     <SectionsHeroSection
       variant="page"
       label="Anwalt für Mietrecht aus Hamburg"
-      title="Mietrecht"
+      title="Mietrecht Hamburg"
       subtitle="Ob als <strong>Mieter</strong> oder <strong>Vermieter</strong> – ich schütze Ihre <strong>Rechte</strong> und finde <strong>faire Lösungen</strong> für mietrechtliche Streitigkeiten in Hamburg."
-      background-image="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1920&q=80&fit=crop"
+      :background-image="mietrechtHeroImage"
     />
 
     <!-- Einleitung -->
@@ -13,21 +13,21 @@
       <div class="container">
         <div class="intro__grid">
           <div v-scroll-reveal="'fade-right'" class="intro__content">
-            <h2>Ihr Anwalt für Mietrecht in Hamburg</h2>
+            <h2>Ihr Anwalt für Mietrecht aus Hamburg</h2>
             <p>
               Der Hamburger Wohnungsmarkt ist angespannt – Konflikte zwischen Mietern und Vermietern sind daher
               keine Ausnahme. Zahlungsrückstände, Kündigungen, Mietminderungen oder Streit über Nebenkosten
               können schnell eskalieren und erhebliche Folgen haben.
             </p>
             <p>
-              Als Rechtsanwalt für Mietrecht in Hamburg vertrete ich sowohl Mieter als auch Vermieter in
+              Als Rechtsanwalt für Mietrecht aus Hamburg vertrete ich sowohl Mieter als auch Vermieter in
               streitigen Auseinandersetzungen. Ich prüfe Ihren Fall gründlich, gebe Ihnen eine klare
               Einschätzung und setze Ihre Rechte konsequent durch – außergerichtlich und vor Gericht.
             </p>
           </div>
           <div v-scroll-reveal="'fade-left'" class="intro__image">
             <img
-              src="~/assets/images/J68A4920.jpg"
+              src="~/assets/images/J68A4920.webp"
               alt="Mietrecht Hamburg – Rechtsanwalt Schnoor"
               loading="lazy"
             />
@@ -87,11 +87,35 @@
       </div>
     </section>
 
+    <!-- Weitere Rechtsgebiete -->
+    <section class="weitere section">
+      <div class="container">
+        <div v-scroll-reveal class="section-header">
+          <span class="section-label">Rechtsgebiete</span>
+          <h2>Weitere Leistungen</h2>
+        </div>
+        <div v-scroll-reveal class="weitere__grid">
+          <NuxtLink to="/strafrecht" class="weitere__card">
+            <span class="weitere__label">Strafrecht Hamburg</span>
+            <p>Vorladung, Hausdurchsuchung oder Ermittlungsverfahren – ich übernehme Ihre Strafverteidigung.</p>
+            <span class="weitere__arrow">→</span>
+          </NuxtLink>
+          <NuxtLink to="/verkehrsrecht" class="weitere__card">
+            <span class="weitere__label">Verkehrsrecht Hamburg</span>
+            <p>Bußgeldbescheid, Fahrverbot oder Verkehrsunfall – kompetente Vertretung im Verkehrsrecht.</p>
+            <span class="weitere__arrow">→</span>
+          </NuxtLink>
+        </div>
+      </div>
+    </section>
+
     <SectionsAboutContactSection />
   </div>
 </template>
 
 <script setup lang="ts">
+import mietrechtHeroImage from '~/assets/images/mietrecht-hero.webp'
+
 useSeoMeta({
   title: 'Mietrecht Hamburg | Rechtsanwalt Philipp Schnoor – Anwalt für Mieter & Vermieter',
   ogTitle: 'Mietrecht – Rechtsanwalt Philipp Schnoor aus Hamburg',
@@ -274,6 +298,63 @@ useFaqSchema(faqItems)
 .faq-section {
   .section-header {
     margin-bottom: 2rem;
+  }
+}
+
+.weitere {
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+
+    @media (max-width: $bp-sm) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1.8rem 2rem;
+    background: $color-white;
+    border: 1px solid rgba($color-primary-light, 0.12);
+    border-radius: $radius-lg;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+
+    &:hover {
+      border-color: rgba($color-accent, 0.4);
+      box-shadow: 0 8px 24px rgba($color-primary, 0.08);
+      transform: translateY(-3px);
+
+      .weitere__arrow {
+        transform: translateX(4px);
+        color: $color-accent-dark;
+      }
+    }
+  }
+
+  &__label {
+    font-family: $font-heading;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: $color-primary;
+  }
+
+  p {
+    font-size: 0.9rem;
+    color: $color-text-light;
+    line-height: 1.6;
+    margin: 0;
+    flex: 1;
+  }
+
+  &__arrow {
+    font-size: 1.1rem;
+    color: $color-primary-light;
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+    margin-top: 0.25rem;
   }
 }
 </style>

@@ -11,7 +11,7 @@
       <div v-scroll-reveal class="ac__card">
         <div class="ac__card-left">
           <img
-            src="~/assets/images/J68A5144.jpg"
+            src="~/assets/images/Schnoor-Kontak.webp"
             alt="Rechtsanwalt Philipp Schnoor"
             loading="lazy"
           />
@@ -40,13 +40,13 @@
               </div>
             </a>
 
-            <a href="mailto:kontakt@schnoor-rechtsanwalt.de" class="ac__channel">
+            <a href="mailto:info@schnoorrechtsanwalt.de" class="ac__channel">
               <div class="ac__channel-icon">
                 <PhEnvelope :size="20" weight="light" />
               </div>
               <div class="ac__channel-text">
                 <span class="ac__channel-label">E-Mail</span>
-                <span class="ac__channel-value">kontakt@schnoor-rechtsanwalt.de</span>
+                <span class="ac__channel-value">info@schnoorrechtsanwalt.de</span>
               </div>
             </a>
 
