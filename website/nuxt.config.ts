@@ -75,4 +75,12 @@ export default defineNuxtConfig({
   build: {
     transpile: ['@phosphor-icons/vue'],
   },
+
+  vite: {
+    resolve: {
+      alias: {
+        'unenv/dist/runtime/runtime/mock/empty.mjs': 'unenv/dist/runtime/mock/empty.mjs',
+      },
+    },
+  },
 })
