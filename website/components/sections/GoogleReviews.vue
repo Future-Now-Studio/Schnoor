@@ -1,5 +1,5 @@
 <template>
-  <section ref="sectionRef" class="reviews section section--light">
+  <section v-if="reviews.length" ref="sectionRef" class="reviews section section--light">
     <div class="reviews__rope reviews__rope--tl" aria-hidden="true" :style="{ transform: `translateY(${ropeParallax}px)` }">
       <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
         <path d="M2 80 V20 Q2 2 20 2 H80" opacity="0.15"/>
@@ -84,51 +84,21 @@
 <script setup lang="ts">
 import { PhStar, PhCaretLeft, PhCaretRight } from '@phosphor-icons/vue'
 
-const staticReviews = [
-  {
-    name: 'Michael K.',
-    text: 'Herr Schnoor hat sich meines Mietrechtsfalls mit großem Engagement angenommen. Innerhalb weniger Wochen konnte eine faire Lösung mit meinem Vermieter erzielt werden. Sehr kompetent und immer erreichbar.',
-    role: 'Mandant – Mietrecht',
-  },
-  {
-    name: 'Sarah L.',
-    text: 'In einer sehr belastenden Situation im Strafrecht hat Herr Schnoor mir sofort geholfen und das Verfahren wurde eingestellt. Seine ruhige und professionelle Art hat mir viel Sicherheit gegeben. Absolut empfehlenswert!',
-    role: 'Mandantin – Strafrecht',
-  },
-  {
-    name: 'Thomas W.',
-    text: 'Nach einem Bußgeldbescheid hat Herr Schnoor erfolgreich Einspruch eingelegt. Das Fahrverbot konnte abgewendet werden. Schnelle Kommunikation, transparente Kosten. Ich würde jederzeit wieder zu ihm gehen.',
-    role: 'Mandant – Verkehrsrecht',
-  },
-  {
-    name: 'Anna M.',
-    text: 'Herr Schnoor hat mir in einer schwierigen Mietangelegenheit hervorragend geholfen. Meine Nebenkostenabrechnung wurde korrigiert und ich erhielt eine erhebliche Rückzahlung. Sehr empfehlenswert!',
-    role: 'Mandantin – Mietrecht',
-  },
-  {
-    name: 'Christian B.',
-    text: 'Professionelle Beratung zum Verkehrsrecht. Mein Bußgeldbescheid war tatsächlich fehlerhaft und das Verfahren wurde eingestellt. Vielen Dank für die kompetente und schnelle Hilfe!',
-    role: 'Mandant – Verkehrsrecht',
-  },
-]
-
-// Fetch live reviews from Google Places API (falls back to static if not configured)
+// Fetch live reviews from Google Places API — section hidden if not available
 const { data: apiData } = await useAsyncData('google-reviews', () => $fetch('/api/reviews'))
 
 const reviews = computed(() => {
-  if (apiData.value?.reviews?.length) {
-    return apiData.value.reviews.map((r: any) => ({
-      name: r.name,
-      text: r.text,
-      photo: r.photo || '',
-      role: `${'★'.repeat(r.rating)} Google-Bewertung`,
-    }))
-  }
-  return staticReviews
+  if (!apiData.value?.reviews?.length) return []
+  return apiData.value.reviews.map((r: any) => ({
+    name: r.name,
+    text: r.text,
+    photo: r.photo || '',
+    role: `${'★'.repeat(r.rating)} Google-Bewertung`,
+  }))
 })
 
-const displayRating = computed(() => apiData.value?.rating?.toFixed(1).replace('.', ',') ?? '4,9')
-const displayCount = computed(() => apiData.value?.totalReviews ?? 33)
+const displayRating = computed(() => apiData.value?.rating?.toFixed(1).replace('.', ',') ?? '')
+const displayCount = computed(() => apiData.value?.totalReviews ?? 0)
 
 const doubledReviews = computed(() => [...reviews.value, ...reviews.value])
 const paused = ref(false)
