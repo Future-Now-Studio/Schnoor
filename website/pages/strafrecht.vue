@@ -153,36 +153,6 @@
       </div>
     </section>
 
-    <!-- Weitere Rechtsgebiete -->
-    <section class="weitere section">
-      <div class="container">
-        <div v-scroll-reveal class="section-header">
-          <span class="section-label">Rechtsgebiete</span>
-          <h2>Weitere Leistungen</h2>
-        </div>
-        <div v-scroll-reveal class="weitere__grid">
-          <NuxtLink to="/mietrecht" class="weitere__card" :style="{ '--bg': `url(${weitereImgMietrecht})` }">
-            <div class="weitere__overlay"></div>
-            <div class="weitere__content">
-              <span class="weitere__badge">Rechtsgebiet</span>
-              <span class="weitere__label">Mietrecht Hamburg</span>
-              <p>Kündigung, Mietminderung oder Räumung – ich vertrete Mieter und Vermieter in Hamburg.</p>
-              <span class="weitere__cta">Mehr erfahren <span class="weitere__arrow">→</span></span>
-            </div>
-          </NuxtLink>
-          <NuxtLink to="/verkehrsrecht" class="weitere__card" :style="{ '--bg': `url(${weitereImgVerkehr})` }">
-            <div class="weitere__overlay"></div>
-            <div class="weitere__content">
-              <span class="weitere__badge">Rechtsgebiet</span>
-              <span class="weitere__label">Verkehrsrecht Hamburg</span>
-              <p>Bußgeldbescheid, Fahrverbot oder Verkehrsunfall – kompetente Vertretung im Verkehrsrecht.</p>
-              <span class="weitere__cta">Mehr erfahren <span class="weitere__arrow">→</span></span>
-            </div>
-          </NuxtLink>
-        </div>
-      </div>
-    </section>
-
     <SectionsAboutContactSection />
   </div>
 </template>

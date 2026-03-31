@@ -75,10 +75,13 @@ defineProps<{
     margin-bottom: 1.25rem;
     transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     flex-shrink: 0;
+    line-height: 0;
 
     :deep(svg) {
-      width: 26px;
-      height: 26px;
+      display: block;
+      width: 24px !important;
+      height: 24px !important;
+      flex-shrink: 0;
     }
   }
 
