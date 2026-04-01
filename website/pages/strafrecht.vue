@@ -160,8 +160,6 @@
 <script setup lang="ts">
 import { PhArrowRight, PhWarning, PhPhone } from '@phosphor-icons/vue'
 import strafrechtHeroImage from '~/assets/images/strafrecht-hero.webp'
-import weitereImgMietrecht from '~/assets/images/mietrecht-hero.webp'
-import weitereImgVerkehr from '~/assets/images/anthony-maw-XcjVef6uvYA-unsplash.webp'
 
 useSeoMeta({
   title: 'Strafrecht Hamburg | Strafverteidiger Philipp Schnoor – Rechtsanwalt',
@@ -571,105 +569,5 @@ useFaqSchema(faqItems)
 
 .faq-section .section-header {
   margin-bottom: 2rem;
-}
-
-.weitere {
-  &__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-
-    @media (max-width: $bp-sm) {
-      grid-template-columns: 1fr;
-    }
-  }
-
-  &__card {
-    position: relative;
-    min-height: 260px;
-    border-radius: $radius-lg;
-    overflow: hidden;
-    background: var(--bg) center / cover no-repeat $color-primary;
-    text-decoration: none;
-    display: flex;
-    align-items: flex-end;
-    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-                box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 56px rgba($color-primary-dark, 0.35);
-
-      .weitere__overlay {
-        opacity: 0.75;
-      }
-
-      .weitere__arrow {
-        transform: translateX(5px);
-      }
-    }
-  }
-
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba($color-primary-dark, 0.96) 0%,
-      rgba($color-primary, 0.65) 55%,
-      rgba($color-primary-dark, 0.2) 100%
-    );
-    opacity: 0.88;
-    transition: opacity 0.4s ease;
-  }
-
-  &__content {
-    position: relative;
-    z-index: 1;
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    width: 100%;
-  }
-
-  &__badge {
-    font-size: 0.68rem;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-    text-transform: uppercase;
-    color: $color-accent;
-    margin-bottom: 0.1rem;
-  }
-
-  &__label {
-    font-family: $font-heading;
-    font-size: 1.45rem;
-    font-weight: 700;
-    color: $color-white;
-    line-height: 1.15;
-  }
-
-  p {
-    font-size: 0.87rem;
-    color: rgba($color-white, 0.7);
-    line-height: 1.6;
-    margin: 0.25rem 0 0.6rem;
-  }
-
-  &__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: $color-accent;
-    letter-spacing: 0.3px;
-  }
-
-  &__arrow {
-    display: inline-block;
-    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-  }
 }
 </style>
