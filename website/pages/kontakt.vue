@@ -4,7 +4,7 @@
       variant="page"
       label="Kontakt"
       title="Kontakt – Rechtsanwalt Hamburg"
-      subtitle="Schildern Sie mir Ihr Anliegen im <strong>Mietrecht</strong>, <strong>Strafrecht</strong> oder <strong>Verkehrsrecht</strong>. Ich melde mich <strong>zeitnah</strong> bei Ihnen – <strong>persönlich</strong> und <strong>vertraulich</strong>."
+      subtitle="Ich berate Sie in <strong>Mietrecht</strong>, <strong>Strafrecht</strong> und <strong>Verkehrsrecht</strong> – sowie in vielen weiteren rechtlichen Fragen. Schildern Sie mir Ihr Anliegen, ich melde mich <strong>zeitnah</strong>, <strong>persönlich</strong> und <strong>vertraulich</strong>."
       :background-image="schnoor"
     />
 
