@@ -18,8 +18,8 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
               </div>
             </div>
             <p class="footer__desc">
-              Kompetente Rechtsberatung in Hamburg. Spezialisiert auf Mietrecht,
-              Strafrecht und Verkehrsrecht – persönlich, engagiert und lösungsorientiert.
+              Kompetente Rechtsberatung in Hamburg. Spezialisiert auf Mietrecht und Strafrecht –
+              mit umfangreicher praktischer Erfahrung im Verkehrsrecht.
             </p>
           </div>
           <div class="footer__cta">

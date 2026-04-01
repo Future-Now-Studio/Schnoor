@@ -39,7 +39,7 @@ export default defineNuxtConfig({
     url: 'https://schnoor-rechtsanwalt.de',
     name: 'Philipp Schnoor - Rechtsanwalt & Strafverteidiger Hamburg',
     description:
-      'Rechtsanwalt Philipp Schnoor in Hamburg. Spezialisiert auf Mietrecht, Strafrecht und Verkehrsrecht. Kompetente Rechtsberatung mit persönlichem Engagement.',
+      'Rechtsanwalt Philipp Schnoor in Hamburg. Spezialisiert auf Mietrecht und Strafrecht – mit umfangreicher Erfahrung im Verkehrsrecht.',
     defaultLocale: 'de',
   },
 
