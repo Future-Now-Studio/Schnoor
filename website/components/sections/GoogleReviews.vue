@@ -100,7 +100,13 @@ const reviews = computed(() => {
 const displayRating = computed(() => apiData.value?.rating?.toFixed(1).replace('.', ',') ?? '')
 const displayCount = computed(() => apiData.value?.totalReviews ?? 0)
 
-const doubledReviews = computed(() => [...reviews.value, ...reviews.value])
+// Repeat enough times so the carousel never shows a gap (min 4 copies)
+const doubledReviews = computed(() => {
+  const r = reviews.value
+  if (!r.length) return []
+  const copies = Math.max(4, Math.ceil(8 / r.length))
+  return Array.from({ length: copies }, () => r).flat()
+})
 const paused = ref(false)
 const trackRef = ref<HTMLElement>()
 
@@ -243,7 +249,7 @@ onUnmounted(() => {
     display: flex;
     gap: 1.5rem;
     width: max-content;
-    animation: carouselScroll 45s linear infinite;
+    animation: carouselScroll 30s linear infinite;
 
     &--paused {
       animation-play-state: paused;
@@ -270,7 +276,7 @@ onUnmounted(() => {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 

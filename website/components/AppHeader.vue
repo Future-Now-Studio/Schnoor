@@ -123,6 +123,10 @@ watch(menuOpen, (open) => {
     font-weight: 600;
     color: $color-white;
     line-height: 1.2;
+
+    @media (max-width: $bp-sm) {
+      font-size: 1.1rem;
+    }
   }
 
   &__logo-sub {
@@ -131,6 +135,11 @@ watch(menuOpen, (open) => {
     letter-spacing: 1px;
     text-transform: uppercase;
     white-space: nowrap;
+
+    @media (max-width: $bp-sm) {
+      font-size: 0.6rem;
+      letter-spacing: 0.5px;
+    }
   }
 
   &__nav {
