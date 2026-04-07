@@ -130,6 +130,7 @@ watch(menuOpen, (open) => {
     color: $color-accent;
     letter-spacing: 1px;
     text-transform: uppercase;
+    white-space: nowrap;
   }
 
   &__nav {

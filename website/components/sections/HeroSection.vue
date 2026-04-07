@@ -249,6 +249,13 @@ onUnmounted(() => {
     line-height: 1.12;
     padding-bottom: 0.05em;
     clip-path: inset(0 100% 0 0);
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    @media (max-width: $bp-sm) {
+      font-size: clamp(1.8rem, 8vw, 2.8rem);
+      letter-spacing: -0.02em;
+    }
 
     :deep(.highlight) {
       color: $color-accent;
