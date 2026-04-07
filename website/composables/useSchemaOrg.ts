@@ -7,7 +7,7 @@ export const useLocalBusinessSchema = () => {
           '@context': 'https://schema.org',
           '@type': ['LegalService', 'LocalBusiness'],
           name: 'Kanzlei Schnoor – Rechtsanwalt Philipp Schnoor',
-          description: 'Rechtsanwalt und Strafverteidiger in Hamburg. Spezialisiert auf Mietrecht und Strafrecht – mit umfangreicher Erfahrung im Verkehrsrecht.',
+          description: 'Rechtsanwalt und Strafverteidiger aus Hamburg. Spezialisiert auf Mietrecht und Strafrecht – mit umfangreicher Erfahrung im Verkehrsrecht.',
           url: 'https://schnoor-rechtsanwalt.de',
           telephone: '+4915730871236',
           email: 'info@schnoorrechtsanwalt.de',

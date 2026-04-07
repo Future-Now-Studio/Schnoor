@@ -61,8 +61,8 @@ import schnoor from '~/assets/images/Schnoor-Kontak.webp'
 useSeoMeta({
   title: 'Kontakt | Rechtsanwalt Philipp Schnoor Hamburg – Termin vereinbaren',
   ogTitle: 'Kontakt – Rechtsanwalt Philipp Schnoor Hamburg',
-  description: 'Kontaktieren Sie Rechtsanwalt Philipp Schnoor in Hamburg. Termin für Erstberatung vereinbaren – telefonisch, per E-Mail oder WhatsApp. Mietrecht, Strafrecht, Verkehrsrecht.',
-  ogDescription: 'Rechtsanwalt Schnoor in Hamburg kontaktieren. Jetzt Erstberatung vereinbaren.',
+  description: 'Kontaktieren Sie Rechtsanwalt Philipp Schnoor aus Hamburg. Termin für Erstberatung vereinbaren – telefonisch, per E-Mail oder WhatsApp. Mietrecht, Strafrecht, Verkehrsrecht.',
+  ogDescription: 'Rechtsanwalt Schnoor aus Hamburg kontaktieren. Jetzt Erstberatung vereinbaren.',
 })
 </script>
 
