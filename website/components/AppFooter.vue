@@ -11,7 +11,7 @@ import { PhMapPin, PhPhone, PhEnvelope, PhArrowRight } from '@phosphor-icons/vue
         <div class="footer__top">
           <div class="footer__brand">
             <div class="footer__logo">
-              <img src="~/assets/images/Schnoorlogoneu.png" alt="Kanzlei Schnoor" class="footer__logo-mark" />
+              <img src="~/assets/images/Schnoor-Neu.png" alt="Kanzlei Schnoor" class="footer__logo-mark" />
               <div>
                 <div class="footer__logo-name">Philipp Schnoor</div>
                 <div class="footer__logo-sub">Rechtsanwalt &amp; Strafverteidiger</div>

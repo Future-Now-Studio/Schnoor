@@ -3,7 +3,7 @@
     <div v-if="showSplash" class="splash" :class="{ 'splash--hidden': hideSplash }">
       <div class="splash__inner">
         <div class="splash__logo">
-          <img src="~/assets/images/Schnoorlogoneu.png" alt="Kanzlei Schnoor" />
+          <img src="~/assets/images/Schnoor-Neu.png" alt="Kanzlei Schnoor" />
         </div>
         <div class="splash__bar">
           <div class="splash__bar-fill"></div>

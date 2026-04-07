@@ -2,7 +2,7 @@
   <header class="header" :class="{ 'header--scrolled': isScrolled, 'header--open': menuOpen }">
     <div class="container header__inner">
       <NuxtLink to="/" class="header__logo" @click="menuOpen = false">
-        <img src="~/assets/images/Schnoorlogoneu.png" alt="Kanzlei Schnoor" class="header__logo-mark" />
+        <img src="~/assets/images/Schnoor-Neu.png" alt="Kanzlei Schnoor" class="header__logo-mark" />
         <div class="header__logo-text">
           <span class="header__logo-name">Philipp Schnoor</span>
           <span class="header__logo-sub">Rechtsanwalt &amp; Strafverteidiger</span>

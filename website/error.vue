@@ -20,7 +20,7 @@
     <div class="error-page__container">
       <div class="error-page__logo">
         <img
-          src="~/assets/images/Schnoorlogoneu.png"
+          src="~/assets/images/Schnoor-Neu.png"
           alt="Kanzlei Schnoor Logo"
           loading="eager"
         />
