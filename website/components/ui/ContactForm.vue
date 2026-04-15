@@ -105,18 +105,14 @@ const handleSubmit = async () => {
   submitError.value = false
 
   try {
-    const body = new URLSearchParams({
-      'form-name': 'kontakt',
-      name: form.name,
-      email: form.email,
-      telefon: form.telefon,
-      nachricht: form.nachricht,
-    })
-
-    await $fetch('/netlify-forms.html', {
+    await $fetch('/api/contact', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: body.toString(),
+      body: {
+        name: form.name,
+        email: form.email,
+        telefon: form.telefon,
+        nachricht: form.nachricht,
+      },
     })
 
     submitted.value = true
