@@ -13,8 +13,8 @@
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.2.1",
-    "nodemailer": "^8.0.5",
     "nuxt": "^3.16.0",
+    "resend": "^6.11.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"
   },
@@ -22,7 +22,6 @@
     "@nuxt/image": "^1.9.0",
     "@nuxt/test-utils": "^4.0.0",
     "@nuxtjs/seo": "^2.0.0",
-    "@types/nodemailer": "^8.0.0",
     "@vue/test-utils": "^2.4.6",
     "happy-dom": "^20.8.4",
     "sass": "^1.86.0",

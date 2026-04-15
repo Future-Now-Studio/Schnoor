@@ -1,12 +1,4 @@
-import nodemailer from 'nodemailer'
-
-function escapeHtml(str: string): string {
-  return str
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-}
+import { Resend } from 'resend'
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event)
@@ -18,44 +10,25 @@ export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig()
 
-  if (!config.smtpHost || !config.smtpUser || !config.smtpPass) {
-    console.warn('[contact] SMTP not configured – skipping email send')
-    return { success: true }
+  if (!config.resendApiKey) {
+    console.warn('[contact] RESEND_API_KEY not set')
+    throw createError({ statusCode: 500, message: 'E-Mail-Versand nicht konfiguriert' })
   }
 
-  const transporter = nodemailer.createTransport({
-    host: config.smtpHost,
-    port: Number(config.smtpPort) || 587,
-    secure: Number(config.smtpPort) === 465,
-    auth: {
-      user: config.smtpUser,
-      pass: config.smtpPass,
-    },
-  })
+  const resend = new Resend(config.resendApiKey)
 
-  await transporter.sendMail({
-    from: `"Website Schnoor" <${config.smtpUser}>`,
-    replyTo: `"${name}" <${email}>`,
-    to: config.contactEmail || config.smtpUser,
+  await resend.emails.send({
+    from: 'Website Schnoor <onboarding@resend.dev>',
+    replyTo: `${name} <${email}>`,
+    to: config.contactEmail,
     subject: `Neue Kontaktanfrage von ${name}`,
-    text: [
-      `Name: ${name}`,
-      `E-Mail: ${email}`,
-      `Telefon: ${telefon || '–'}`,
-      '',
-      'Nachricht:',
-      nachricht,
-    ].join('\n'),
     html: `
-      <h2 style="font-family:sans-serif;margin-bottom:1em">Neue Kontaktanfrage</h2>
-      <table style="font-family:sans-serif;font-size:14px;border-collapse:collapse">
-        <tr><td style="padding:4px 12px 4px 0;color:#666">Name</td><td>${escapeHtml(name)}</td></tr>
-        <tr><td style="padding:4px 12px 4px 0;color:#666">E-Mail</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
-        <tr><td style="padding:4px 12px 4px 0;color:#666">Telefon</td><td>${escapeHtml(telefon || '–')}</td></tr>
-      </table>
-      <hr style="margin:1.5em 0;border:none;border-top:1px solid #eee">
-      <p style="font-family:sans-serif;font-size:14px;color:#666;margin-bottom:0.5em">Nachricht:</p>
-      <p style="font-family:sans-serif;font-size:14px;white-space:pre-wrap">${escapeHtml(nachricht)}</p>
+      <h2>Neue Kontaktanfrage</h2>
+      <p><strong>Name:</strong> ${name}</p>
+      <p><strong>E-Mail:</strong> ${email}</p>
+      <p><strong>Telefon:</strong> ${telefon || '–'}</p>
+      <hr>
+      <p><strong>Nachricht:</strong><br>${nachricht.replace(/\n/g, '<br>')}</p>
     `,
   })
 

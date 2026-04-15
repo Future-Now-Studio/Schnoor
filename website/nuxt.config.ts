@@ -53,7 +53,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: 'netlify',
     externals: {
-      inline: ['nodemailer'],
+      inline: ['resend'],
     },
     prerender: {
       routes: ['/', '/mietrecht', '/strafrecht', '/verkehrsrecht', '/kontakt', '/datenschutz', '/impressum'],
@@ -73,10 +73,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     googlePlaceId: '',
     googleApiKey: '',
-    smtpHost: '',
-    smtpPort: '587',
-    smtpUser: '',
-    smtpPass: '',
+    resendApiKey: '',
     contactEmail: '',
   },
 
